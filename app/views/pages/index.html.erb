@@ -22,6 +22,7 @@
 				</ul>
 				<p>Você também quer uma educação superior mais moderna? Está ansioso por saber as novidades que estamos preparando? Quer nos ajudar?</p>
 				<ul class="actions">
+					<li><a class="button" data-toggle="modal" data-target="#betaTester"><strong>Quero ser Beta tester!</strong></a></li>
 					<li><a href="https://www.facebook.com/escolapirata/" class="button">Acompanhe nossa ações</a></li>
 					<li><a href="https://www.facebook.com/groups/1706008852970543/" class="button">Participe com suas ideias</a></li>
 				</ul>
@@ -95,3 +96,19 @@ O tempo passa e a dura realidade se apresenta: mais professores ruins que bons, 
 			<li>&copy; Escola Pirata</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 		</ul>
 	</footer>
+
+<!-- Modal -->
+	<div class="modal fade" tabindex="-3" role="dialog" id="betaTester">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Quero ser Beta tester!</h4>
+	      </div>
+	      <div class="modal-body">
+	      	<%= render 'betatester_form' %>
+
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->

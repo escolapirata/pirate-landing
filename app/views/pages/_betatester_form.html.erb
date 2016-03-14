@@ -1,0 +1,10 @@
+<%= form_for @beta_tester do |f| %>
+    <div class="row uniform 50%">
+    	<div class="8u 12u$(xsmall)">
+    	    <%= f.email_field :email, :placeholder => "Email" %>
+        </div>
+    	<div class="4u$ 12u$(xsmall)">
+    	    <%= f.submit :Enviar, class: "button" %>
+    	</div>
+    </div>
+<% end %>
