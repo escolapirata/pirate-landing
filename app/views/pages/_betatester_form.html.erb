@@ -1,4 +1,4 @@
-<%= form_for @beta_tester do |f| %>
+<%= form_for @beta_tester, remote: true do |f| %>
     <div class="row uniform 50%">
     	<div class="8u 12u$(xsmall)">
     	    <%= f.email_field :email, :placeholder => "Email" %>

@@ -16,4 +16,5 @@
 //= require turbolinks
 //= require skel.min.js
 //= require util.js
+//= require custom.js
 //= require_tree .
