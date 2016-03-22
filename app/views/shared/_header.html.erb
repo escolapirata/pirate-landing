@@ -1,5 +1,5 @@
 <header id="header">
-	<a href="#" class="image avatar"><img src="<%= image_path('alt_logo.png') %>" alt="" /></a>
+    <%= link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %>
 	<h1>Somos a <strong>Escola Pirata</strong>.<br />
 	Viemos derrubar as</br> barreiras da educação.</h1>
 	<%= link_to "Atividades", activities_path %>
