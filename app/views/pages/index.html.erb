@@ -1,10 +1,7 @@
 
 <!-- Header -->
-	<header id="header">
-		<a href="#" class="image avatar"><img src="<%= image_path('alt_logo.png') %>" alt="" /></a>
-		<h1>Somos a <strong>Escola Pirata</strong>.<br />
-		Viemos derrubar as</br> barreiras da educação.</h1>
-	</header>
+	<%= render :partial => 'shared/header' %>
+
 
 <!-- Main -->
 	<div id="main">
@@ -86,16 +83,7 @@ O tempo passa e a dura realidade se apresenta: mais professores ruins que bons, 
 	</div>
 
 <!-- Footer -->
-	<footer id="footer">
-		<ul class="icons">
-			<li><a href="https://www.facebook.com/escolapirata/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-			<li><a href="https://medium.com/escola-pirata" target="_blank" class="icon fa fa-medium"><span class="label">Medium</span></a></li>
-			<li><a href="mailto:murilokn@gmail.com" target="_blank" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-		</ul>
-		<ul class="copyright">
-			<li>&copy; Escola Pirata</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-		</ul>
-	</footer>
+	<%= render :partial => 'shared/footer' %>
 
 <!-- Modal -->
 	<div class="modal" tabindex="-3" role="dialog" id="betaTester">
