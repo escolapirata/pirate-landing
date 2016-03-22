@@ -997,6 +997,30 @@
 		}
 	}
 
+/* Activity Card */
+
+	.card {
+		border-radius: _size(border-radius);
+		background-color:	#f7f7f7;
+	}
+	.card-header {
+		border-top-left-radius: _size(border-radius);
+		border-top-right-radius: _size(border-radius);
+		background-color:		_palette(accent2, bg);
+		background-image:		asset-url('overlay.png'),			asset-url('bg.jpg');
+		color: _palette(accent1, fg);
+		padding-left: 10px;
+		h1 {
+			color: _palette(accent2, fg);
+			font-size: 1.35em;
+			line-height: 1.75em;
+			margin: 0;
+		}
+	}
+	.card-body {
+		padding-left: 10px;
+	}
+
 /* Main */
 
 	#main {
