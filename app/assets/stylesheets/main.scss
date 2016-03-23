@@ -1000,25 +1000,28 @@
 /* Activity Card */
 
 	.card {
-		border-radius: _size(border-radius);
 		background-color:	#f7f7f7;
+	    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	text-align: center;
 	}
 	.card-header {
-		border-top-left-radius: _size(border-radius);
-		border-top-right-radius: _size(border-radius);
 		background-color:		_palette(accent2, bg);
-		background-image:		asset-url('overlay.png'),			asset-url('bg.jpg');
+		height: 150px;
 		color: _palette(accent1, fg);
-		padding-left: 10px;
+		padding: 5px;
+		vertical-align: bottom;
 		h1 {
-			color: _palette(accent2, fg);
+			color: _palette(accent2, fg-bold);
+		    text-shadow: 0px 0px 4px #000000;
 			font-size: 1.35em;
 			line-height: 1.75em;
 			margin: 0;
+			
 		}
 	}
 	.card-body {
-		padding-left: 10px;
+		padding: 5px;
+		min-height: 100px;
 	}
 
 /* Main */
