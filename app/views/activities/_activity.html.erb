@@ -1,6 +1,6 @@
 <div class="4u 12u$(xsmall)">
     <div class="card">
-        <div class="card-header" style="background-image:   url(<%= asset_url('overlay.png') %>), url(<%= asset_url('activities/calculus.jpg') %>)">
+        <div class="card-header" style="background-image:   url(<%= asset_url('overlay.png') %>), url(<%= asset_url(activity.image.url(:cover)) %>)">
             <h1>
                <%= link_to activity.name, activity_path(activity)%>  
             </h1>

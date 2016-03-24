@@ -44,10 +44,8 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.update(activity_params)
         format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
-        format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,6 +70,6 @@ class ActivitiesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids)
+      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids, :image)
     end
 end
