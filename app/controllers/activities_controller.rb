@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :get_entities, only: [:edit, :new]
 
   # GET /activities
   # GET /activities.json
@@ -66,9 +67,11 @@ class ActivitiesController < ApplicationController
     def set_activity
       @activity = Activity.find(params[:id])
     end
-
+    def get_entities
+      @entities = Entity.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :owner, :timestamps)
+      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids)
     end
 end

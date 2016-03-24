@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :Nome %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :owner %><br>
-    <%= f.number_field :owner %>
+    <%= f.label :Criador %>
+    <%= f.collection_select :entity_ids, @entities, :id, :name, {include_blank: false}, {multiple: false} %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -7,7 +7,8 @@
             
         </div>
         <div class="card-body">
-            Owner: <%= activity.owner %>
+            <%= activity.entities.first.name %>
+            </br>
             <%= link_to 'Show', activity %> | 
             <%= link_to 'Edit', edit_activity_path(activity) %> |
             <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
