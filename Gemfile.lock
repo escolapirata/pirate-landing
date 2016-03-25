@@ -183,11 +183,8 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
-<<<<<<< HEAD
   omniauth-facebook (~> 3.0.0)
-=======
   paperclip
->>>>>>> master
   pg
   rails (= 4.2.5)
   sass-rails (~> 5.0)
