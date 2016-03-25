@@ -1,12 +1,3 @@
-FacebookAuthExample::Application.routes.draw do
-    get 'auth/:provider/callback', to: 'sessions#create'
-    get 'auth/failure', to: redirect('/')
-    get 'signout', to: 'sessions#destroy', as: 'signout'
-
-    resources :sessions, only: [:create, :destroy]
-
-end
-
 
 Rails.application.routes.draw do
   get 'sessions/create'
@@ -75,3 +66,11 @@ Rails.application.routes.draw do
 end
 
 
+FacebookAuthExample::Application.routes.draw do
+    get 'auth/:provider/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
+    get 'signout', to: 'sessions#destroy', as: 'signout'
+
+    resources :sessions, only: [:create, :destroy]
+
+end
