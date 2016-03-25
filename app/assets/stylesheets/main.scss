@@ -931,6 +931,17 @@
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
 			width: 6.25em;
 		}
+		
+		a {
+			color: _palette(accent2, fg);
+			font-size: 1.35em;
+			line-height: 1.75em;
+			margin: 0;
+			
+			&:hover {
+				color: _palette(accent2, fg-bold) !important ;
+			}
+		}
 	}
 
 /* Footer */
@@ -976,6 +987,41 @@
 				}
 			}
 		}
+		a {
+			color: _palette(accent2, fg);
+			margin: 0;
+			
+			&:hover {
+				color: _palette(accent2, fg-bold) !important ;
+			}
+		}
+	}
+
+/* Activity Card */
+
+	.card {
+		background-color:	#f7f7f7;
+	    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	text-align: center;
+	}
+	.card-header {
+		background-color:		_palette(accent2, bg);
+		height: 150px;
+		color: _palette(accent1, fg);
+		padding: 5px;
+		vertical-align: bottom;
+		h1 {
+			color: _palette(accent2, fg-bold);
+		    text-shadow: 0px 0px 4px #000000;
+			font-size: 1.35em;
+			line-height: 1.75em;
+			margin: 0;
+			
+		}
+	}
+	.card-body {
+		padding: 5px;
+		min-height: 100px;
 	}
 
 /* Main */
