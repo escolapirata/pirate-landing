@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @path.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @path.description %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @path.owner_id %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @path.creator_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @path.image %>
+</p>
+
+<%= link_to 'Edit', edit_path_path(@path) %> |
+<%= link_to 'Back', paths_path %>
