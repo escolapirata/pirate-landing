@@ -1,15 +1,14 @@
 <header id="header">
-    <%= link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %></br>
-
-
-	<% if !current_user %>
+    <% link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %></br>
+	<%# if !current_user %>
 		<h1>Somos a <strong>Escola Pirata</strong>.<br />
-		Viemos derrubar as</br> barreiras da educação.</h1>	</br>
+		Viemos derrubar as</br> barreiras da educação.</h1>	</br> 
 		<%= link_to "Entrar com o Facebook", '/auth/facebook', class: "button" %></br>
-	<% else %>
+	<%# else %>
 		<%= link_to "Atividades", activities_path, class: "button"  %>
 		<%= link_to "Entidades", entities_path, class: "button"  %>
-		<%= link_to 'Log Out', signout_path, class: "button"  %></br>
-	<% end %>
+		<%= link_to "Jornadas", paths_path, class: "button"  %>
+		<% link_to 'Log Out', signout_path, class: "button"  %></br>
+	<%# end %>
 	
 </header>

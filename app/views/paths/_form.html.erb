@@ -21,15 +21,15 @@
   </div>
   <div class="field">
     <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
+    <%= f.collection_select :owner_id, @entities, :id, :name, {include_blank: false}, {multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :creator_id %><br>
-    <%= f.number_field :creator_id %>
+    <%= f.collection_select :creator_id, @entities, :id, :name, {include_blank: false}, {multiple: false} %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

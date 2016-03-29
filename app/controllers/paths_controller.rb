@@ -1,5 +1,6 @@
 class PathsController < ApplicationController
   before_action :set_path, only: [:show, :edit, :update, :destroy]
+  before_action :get_entities, only: [:edit, :new]
 
   # GET /paths
   # GET /paths.json
@@ -66,7 +67,9 @@ class PathsController < ApplicationController
     def set_path
       @path = Path.find(params[:id])
     end
-
+    def get_entities
+      @entities = Entity.all
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def path_params
       params.require(:path).permit(:name, :description, :owner_id, :creator_id, :image)

@@ -30,6 +30,9 @@ gem 'omniauth-facebook', '~> 3.0.0'
 # to handle with images
 gem 'paperclip'
 
+#To handle with selection fields in forms
+gem 'chosen-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
