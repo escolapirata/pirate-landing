@@ -1,27 +1,24 @@
 <p id="notice"><%= notice %></p>
+<div class="user-header col-small-12"  style="background-image:   url(<%= asset_url('overlay.png') %>), url(<%= asset_url('signal.jpg')%>); background-size: 100%">
+  <div class="user-header-content">
+    <h1><%= @entity.name %></h1>
+    <h2><%= @entity.email %></h2>
+  </div>
+  <div class="user-image">
+    <%= image_tag(@entity.image.url(:square), class: 'user-img') %>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @entity.email %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @entity.name %>
-</p>
-
-
-  
 <% if @entity.activities.any? %>
   <p>
-  <strong>Atividades:</strong>
+  <h2>Atividades:</h2>
     <%= render @entity.activities %>
   </p>
 <% end %>
 
-<% if @entity.activities.any? %>
+<% if @entity.owned_paths.any? %>
   <p>
-  <strong>Owned Paths:</strong>
+  <h2>Owned Paths:</h2>
     <%= render @entity.owned_paths %>
   </p>
 <% end %>
