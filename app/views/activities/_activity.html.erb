@@ -4,7 +4,6 @@
             <h1>
                <%= link_to activity.name, activity_path(activity)%>  
             </h1>
-            
         </div>
         <div class="card-body">
             <%= activity.entities.first.name %>
@@ -12,7 +11,6 @@
             <%= link_to 'Show', activity %> | 
             <%= link_to 'Edit', edit_activity_path(activity) %> |
             <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            
         </div>
     </div>
 </div>

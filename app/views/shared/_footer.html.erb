@@ -1,4 +1,7 @@
 <footer id="footer">
+ 	<% if controller.controller_name=="entities"&&controller.action_name=="show" %>
+		<%= link_to "voltar para EscolaPirata.com", root_path %>
+	<% end %>
 	<ul class="icons">
 		<li><a href="https://www.facebook.com/escolapirata/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 		<li><a href="https://medium.com/escola-pirata" target="_blank" class="icon fa fa-medium"><span class="label">Medium</span></a></li>

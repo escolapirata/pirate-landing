@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @certificate.provider_id %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @certificate.owner_id %>
+</p>
+
+<p>
+  <strong>Grade:</strong>
+  <%= @certificate.grade %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @certificate.paid %>
+</p>
+
+<p>
+  <strong>Public comment:</strong>
+  <%= @certificate.public_comment %>
+</p>
+
+<p>
+  <strong>Private comment:</strong>
+  <%= @certificate.private_comment %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @certificate.activity_id %>
+</p>
+
+<%= link_to 'Edit', edit_certificate_path(@certificate) %> |
+<%= link_to 'Back', certificates_path %>

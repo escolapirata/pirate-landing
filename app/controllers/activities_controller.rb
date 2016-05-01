@@ -67,6 +67,6 @@ class ActivitiesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids, :image)
+      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids, :image, :intro, :description, :content)
     end
 end
