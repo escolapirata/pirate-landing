@@ -8,7 +8,7 @@ class PagesController < ApplicationController
    end
    
    def search
-      @entities = Entity. where('name LIKE ?', "%#{params[:name]}%")
+      @entities = Entity. where('LOWER(name) LIKE ?', "%#{params[:name].downcase}%")
    end
       
 end
