@@ -2,7 +2,7 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<% if @entity.intro %>
+<% if @entity.intro&&@entity.intro!="" %>
   <section id="one">
     <h2>Sobre</h2>
     <p><%= raw @entity.intro %></p>

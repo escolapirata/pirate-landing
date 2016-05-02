@@ -16,6 +16,7 @@
     <div class="collapse navbar-collapse" id="admin-navbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Signed in as <strong><%= current_user.name %></a></strong></li>
+        <li><%= link_to "Certificados", certificates_path %></li>
         <li><%= link_to "Atividades", activities_path %></li>
         <li><%= link_to "Entidades", entities_path %></li>
         <li><%= link_to "Jornadas", paths_path %></li>
