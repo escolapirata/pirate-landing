@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore Paperclip images from assets
-/public/system/quadros/
+/public/system/
