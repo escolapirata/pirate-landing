@@ -4,7 +4,8 @@
 
 <% if @entity.intro %>
   <section id="one">
-    <p><%= @entity.intro %></p>
+    <h2>Sobre</h2>
+    <p><%= raw @entity.intro %></p>
   </section>
 <% end %>
 
@@ -15,21 +16,17 @@
 </section>
 <% end %>
 
-<% if current_user&&current_user.uid=="10153629801172736" %>
-  <% if @entity.activities.any? %>
-    <section id="three">
-    <h2>Atividades criadas</h2>
-      <%= render @entity.activities %>
-    </section>
-  <% end %>
-  
-  <% if @entity.owned_paths.any? %>
-    <section id="four">
-    <h2>Currículos criados</h2>
-      <%= render @entity.owned_paths %>
-    </p>
-  <% end %>
-  
-  <%= link_to 'Edit', edit_entity_path(@entity) %> |
-  <%= link_to 'Back', entities_path %>
+
+<% if @entity.activities.any? %>
+  <section id="three">
+  <h2>Atividades criadas</h2>
+    <%= render @entity.activities %>
+  </section>
+<% end %>
+
+<% if @entity.owned_paths.any? %>
+  <section id="four">
+  <h2>Currículos criados</h2>
+    <%= render @entity.owned_paths %>
+  </p>
 <% end %>

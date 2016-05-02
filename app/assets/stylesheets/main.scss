@@ -43,7 +43,9 @@
 	$size-header-pad: 2em;
 
 /* Basic */
-
+	.no-padding{
+		padding: 0px;	
+	}
 	body {
 		background: _palette(bg);
 
@@ -942,6 +944,7 @@
 				color: _palette(accent2, fg-bold) !important ;
 			}
 		}
+
 		.button {
 			@include vendor('appearance', 'none');
 			@include vendor('transition', ('background-color #{_duration(transition)} ease-in-out', 'color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
@@ -1034,6 +1037,9 @@
 		position: fixed;
 		text-align: right;
 		width: $size-header-width;
+		.form-control{
+			font-size: 12px;
+		}
 
 		.icons {
 			margin: (_size(element-margin) * 0.5) 0 0 0;
@@ -1087,22 +1093,25 @@
 	}
 	.card-header {
 		background-color:		_palette(accent2, bg);
-		height: 150px;
+		min-height: 150px;
 		color: _palette(accent1, fg);
 		padding: 5px;
 		vertical-align: bottom;
 		h1 {
-			color: _palette(accent2, fg-bold);
-		    text-shadow: 0px 0px 4px #000000;
-			font-size: 1.35em;
-			line-height: 1.75em;
+			color: #000000;
+			font-size: 48px;
+			line-height: 56px;
 			margin: 0;
+			text-decoration: none;
 			
 		}
 	}
 	.card-body {
-		padding: 5px;
+		padding: 10px;
 		min-height: 100px;
+		text-align: left;
+		background-color: #ffffff;
+		
 	}
 
 /* Certificate Card */
@@ -1396,8 +1405,8 @@
 
 	@include breakpoint(large) {
 
-		$size-header-width: 30%;
-		$size-header-pad: 3em;
+		$size-header-width: 25%;
+		$size-header-pad: 2em;
 
 		/* Header */
 
@@ -1446,7 +1455,7 @@
 
 	@include breakpoint(medium) {
 
-		$size-header-pad: 4em;
+		$size-header-pad: 2em;
 
 		/* Basic */
 
@@ -1501,7 +1510,7 @@
 				background-size:		auto,							cover;
 				bottom: auto;
 				left: auto;
-				padding: $size-header-pad $size-header-pad ($size-header-pad * 1.5) $size-header-pad;
+				padding: $size-header-pad $size-header-pad $size-header-pad $size-header-pad;
 				position: relative;
 				text-align: center;
 				width: 100%;

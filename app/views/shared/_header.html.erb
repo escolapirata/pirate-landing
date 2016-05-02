@@ -7,20 +7,11 @@
     	<strong>#inovação</br>#empreendedorismo</br>#workshop</br></strong>
     	
     <% else %>
-    	<%= link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %></br>
-		<% if !current_user %>
-			<h1>Somos a <strong>Escola Pirata</strong>.<br />
-			Viemos derrubar as</br> barreiras da educação.</h1>	</br> 
-			<%= link_to "Entrar com o Facebook", '/auth/facebook', class: "button" %></br>
-		<% else %>
-			
-			Signed in as <strong><%= current_user.name %></strong>!
-			<%= link_to "Certificados", certificates_path, class: "button"  %>
-			<%= link_to "Atividades", activities_path, class: "button"  %>
-			<%= link_to "Entidades", entities_path, class: "button"  %>
-			<%= link_to "Jornadas", paths_path, class: "button"  %>
-			<%= link_to 'Sign out', signout_path, class: "button", id: "sign_out"   %></br>
-		<% end %>
+    	<%= link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %>
+		<h1>Somos a <strong>Escola Pirata</strong>.<br />
+		Viemos derrubar as</br> barreiras da educação.</h1>	</br> 
+
+
 	<% end %>
 	<div>
 </div>

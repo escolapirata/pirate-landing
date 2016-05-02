@@ -1,4 +1,5 @@
 class CertificatesController < ApplicationController
+  before_action :require_admin
   before_action :set_certificate, only: [:show, :edit, :update, :destroy]
   before_action :get_entities, only: [:edit, :new]
   before_action :get_activities, only: [:edit, :new]

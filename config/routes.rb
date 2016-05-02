@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
   post 'beta_testers/', to: 'beta_testers#create'
+  get 'pages/:name', to: 'pages#search'
   
   
   # Example of regular route:

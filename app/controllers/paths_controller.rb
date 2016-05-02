@@ -1,4 +1,5 @@
 class PathsController < ApplicationController
+  before_action :require_admin
   before_action :set_path, only: [:show, :edit, :update, :destroy]
   before_action :get_entities, only: [:edit, :new]
 

@@ -8,8 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+<% if current_user&&current_user.uid=="10153629801172736" %>
 <!-- Admin Navbar -->
 	<%= render :partial => 'shared/admin' %>
+<% end %>
 
 <!-- Header -->
 	<%= render :partial => 'shared/header' %>
@@ -22,7 +25,7 @@
 <!-- Footer -->
 	<%= render :partial => 'shared/footer' %>
 
-<% if controller_name == "pages" %>
+<% if controller_name == "pages" && controller.action_name=="index"  %>
   <!-- Modal -->
   	<div class="modal" tabindex="-3" role="dialog" id="betaTester">
   	  <div class="modal-dialog">

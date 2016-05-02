@@ -1,4 +1,5 @@
 class ActivitiesController < ApplicationController
+  before_action :require_admin, except: [:show]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :get_entities, only: [:edit, :new]
 

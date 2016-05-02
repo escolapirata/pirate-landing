@@ -1,4 +1,5 @@
 class EntitiesController < ApplicationController
+  before_action :require_admin, except: [:show]
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
   # GET /entities
