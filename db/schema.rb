@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324023310) do
+ActiveRecord::Schema.define(version: 20160501161222) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -19,12 +19,27 @@ ActiveRecord::Schema.define(version: 20160324023310) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "intro"
+    t.string   "description"
+    t.string   "content"
   end
 
   create_table "beta_testers", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "certificates", force: :cascade do |t|
+    t.integer  "provider_id"
+    t.integer  "owner_id"
+    t.integer  "grade"
+    t.string   "public_comment"
+    t.string   "private_comment"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "paid"
   end
 
   create_table "entities", force: :cascade do |t|
@@ -36,11 +51,25 @@ ActiveRecord::Schema.define(version: 20160324023310) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "intro"
   end
 
   create_table "ownerships", force: :cascade do |t|
     t.integer "entity_id"
     t.integer "activity_id"
+  end
+
+  create_table "paths", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "owner_id"
+    t.integer  "creator_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

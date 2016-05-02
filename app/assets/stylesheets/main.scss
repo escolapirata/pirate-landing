@@ -39,11 +39,13 @@
 		)
 	));
 
-	$size-header-width: 35%;
-	$size-header-pad: 4em;
+	$size-header-width: 25%;
+	$size-header-pad: 2em;
 
 /* Basic */
-
+	.no-padding{
+		padding: 0px;	
+	}
 	body {
 		background: _palette(bg);
 
@@ -536,14 +538,14 @@
 		}
 
 		&.avatar {
-			border-radius: 0%;
+			border-radius: 100%;
 
 			&:before {
 				display: none;
 			}
 
 			img {
-				border-radius: 0%;
+				border-radius: 100%;
 				width: 100%;
 			}
 		}
@@ -906,7 +908,7 @@
 		color: _palette(accent2, fg);
 		height: 100%;
 		left: 0;
-		padding: ($size-header-pad * 2) $size-header-pad 0 0;
+		padding: ($size-header-pad *2 ) $size-header-pad 0 0;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -929,7 +931,7 @@
 
 		.image.avatar {
 			margin: 0 0 (_size(element-margin) * 0.5) 0;
-			width: 6.25em;
+			width: 170px;
 		}
 		
 		a {
@@ -940,6 +942,88 @@
 			
 			&:hover {
 				color: _palette(accent2, fg-bold) !important ;
+			}
+		}
+
+		.button {
+			@include vendor('appearance', 'none');
+			@include vendor('transition', ('background-color #{_duration(transition)} ease-in-out', 'color #{_duration(transition)} ease-in-out', 'border-color #{_duration(transition)} ease-in-out'));
+			background-color: transparent;
+			border-radius: 0;
+			border-bottom: solid 2px _palette(border);
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			color: _palette(accent2, fg) !important;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: _font(weight-bold);
+			height: 1em;
+			height: calc(1em + 6px);
+			line-height: 1em;
+			min-width: 10em;
+			margin: 2px;
+			padding: 2px;
+			text-align: right;
+			text-decoration: none;
+			white-space: nowrap;
+	
+			&:hover {
+				border-color: _palette(accent1, bg);
+				color: _palette(accent1, fg-bold) !important;
+			}
+	
+			&:active {
+				background-color: transparentize(_palette(accent1, bg), 0.9);
+				border-color: _palette(accent1, bg);
+				color: _palette(accent1, fg-bold) !important;
+			}
+	
+			&.icon {
+				padding-left: 1.35em;
+	
+				&:before {
+					margin-right: 0.5em;
+				}
+			}
+	
+			&.fit {
+				display: block;
+				margin: 0 0 (_size(element-margin) * 0.5) 0;
+				min-width: 0;
+				width: 100%;
+			}
+	
+			&.small {
+				font-size: 0.8em;
+			}
+	
+			&.big {
+				font-size: 1.35em;
+			}
+	
+			&.special {
+				background-color: _palette(accent1, bg);
+				border-color: _palette(accent1, bg);
+				color: _palette(accent1, fg-bold) !important;
+	
+				&:hover {
+					background-color: lighten(_palette(accent1, bg), 5);
+					border-color: lighten(_palette(accent1, bg), 5);
+				}
+	
+				&:active {
+					background-color: darken(_palette(accent1, bg), 5);
+					border-color: darken(_palette(accent1, bg), 5);
+				}
+			}
+	
+			&.disabled,
+			&:disabled {
+				background-color: _palette(border2-bg) !important;
+				border-color: _palette(border2-bg) !important;
+				color: _palette(fg-light) !important;
+				cursor: default;
 			}
 		}
 	}
@@ -953,6 +1037,9 @@
 		position: fixed;
 		text-align: right;
 		width: $size-header-width;
+		.form-control{
+			font-size: 12px;
+		}
 
 		.icons {
 			margin: (_size(element-margin) * 0.5) 0 0 0;
@@ -1006,30 +1093,113 @@
 	}
 	.card-header {
 		background-color:		_palette(accent2, bg);
-		height: 150px;
+		min-height: 150px;
 		color: _palette(accent1, fg);
 		padding: 5px;
 		vertical-align: bottom;
 		h1 {
-			color: _palette(accent2, fg-bold);
-		    text-shadow: 0px 0px 4px #000000;
-			font-size: 1.35em;
-			line-height: 1.75em;
+			color: #000000;
+			font-size: 48px;
+			line-height: 56px;
 			margin: 0;
+			text-decoration: none;
 			
 		}
 	}
 	.card-body {
+		padding: 10px;
+		min-height: 100px;
+		text-align: left;
+		background-color: #ffffff;
+		
+	}
+
+/* Certificate Card */
+
+	.cert {
+		background-color:		_palette(accent2, bg);
+	    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	text-align: center;
+	}
+	.cert-header {
+		min-height: 150px;
+		color: _palette(accent1, fg);
+		padding: 5px;
+		vertical-align: bottom;
+		text-align: left;
+		h1 {
+			color: #000000;
+			font-size: 48px;
+			line-height: 56px;
+			margin: 0;
+			text-decoration: none;
+		}
+		h2 {
+			color: #000000;
+			font-size: 30px;
+			line-height: 30px;
+			margin: 0;
+			
+		}
+		a {
+			text-decoration: none;
+			border-bottom: none;
+		}
+	}
+	.cert-header-title{
+		background-color: rgba(255,255,255,0.8);
+		display: inline-block;
+		padding: 5px 35px 15px 35px;
+		margin: 20px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		
+	}
+	.cert-header-tag{
+		background-color: rgba(0,0,0,0.9);
+		display: inline-block;
+		position: absolute;
+		padding: 1px 7px 1px 7px;
+		margin: -2px 5px 5px -470px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		
+	}	
+	.cert-header-grade{
+		position: relative;
+	    text-align: right;
+        margin-right: 15px;
+    	margin-bottom: 5px;
+			
+	}
+	.cert-body {
+		background-color: #ffffff;
 		padding: 5px;
 		min-height: 100px;
+		display: inline-flex;
+		img {
+			width: 100%;
+			height: 100%;
+			max-width: 150px;
+			max-height: 150px;
+			vertical-align: middle;
+		}
+		.content{
+		    display: table-cell;
+    		vertical-align: middle;
+		}
 	}
+
+	.cert-footer {
+		padding: 5px;
+		min-height: 74px;
+	}
+
 
 /* Main */
 
 	#main {
 		margin-left: $size-header-width;
-		max-width: 50em + $size-header-pad;
-		padding: ($size-header-pad * 2) $size-header-pad $size-header-pad $size-header-pad;
+		/*max-width: 50em + $size-header-pad;*/
+		padding: ($size-header-pad) $size-header-pad $size-header-pad $size-header-pad;
 		width: calc(100% - #{$size-header-width});
 
 		> section {
@@ -1235,8 +1405,8 @@
 
 	@include breakpoint(large) {
 
-		$size-header-width: 30%;
-		$size-header-pad: 3em;
+		$size-header-width: 25%;
+		$size-header-pad: 2em;
 
 		/* Header */
 
@@ -1285,7 +1455,7 @@
 
 	@include breakpoint(medium) {
 
-		$size-header-pad: 4em;
+		$size-header-pad: 2em;
 
 		/* Basic */
 
@@ -1340,7 +1510,7 @@
 				background-size:		auto,							cover;
 				bottom: auto;
 				left: auto;
-				padding: $size-header-pad $size-header-pad ($size-header-pad * 1.5) $size-header-pad;
+				padding: $size-header-pad $size-header-pad $size-header-pad $size-header-pad;
 				position: relative;
 				text-align: center;
 				width: 100%;

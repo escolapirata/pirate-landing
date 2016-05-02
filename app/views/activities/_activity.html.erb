@@ -1,18 +1,18 @@
-<div class="4u 12u$(xsmall)">
-    <div class="card">
-        <div class="card-header" style="background-image:   url(<%= asset_url('overlay.png') %>), url(<%= asset_url(activity.image.url(:cover)) %>)">
-            <h1>
-               <%= link_to activity.name, activity_path(activity)%>  
-            </h1>
-            
+<div class="12u 12u$(xsmall)">
+    <div class="cert" style="   background-image: url(<%= asset_url('overlay.png') %>),
+                                url(<%= asset_url(activity.image.url(:cover)) %>);
+                                background-size: cover;  background-position: center center;">
+        <div class="cert-header">
+            <div class="cert-header-title">
+                <h1><%= link_to activity.name, activity_path(activity)%>  </h1>
+            </div>
+            <div class="cert-header-tag">
+                #inovação #empreendedorismo #workshop
+            </div>
         </div>
         <div class="card-body">
-            <%= activity.entities.first.name %>
-            </br>
-            <%= link_to 'Show', activity %> | 
-            <%= link_to 'Edit', edit_activity_path(activity) %> |
-            <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            
+            <h2>26 ABR 18:30 - Laboratório Aberto do ITA - CCM</h2>
+            <%= activity.description %>
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 class EntitiesController < ApplicationController
+  before_action :require_admin, except: [:show]
   before_action :set_entity, only: [:show, :edit, :update, :destroy]
 
   # GET /entities
@@ -67,6 +68,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:email, :name, :image)
+      params.require(:entity).permit(:email, :name, :image, :intro)
     end
 end

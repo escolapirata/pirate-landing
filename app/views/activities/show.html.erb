@@ -1,13 +1,41 @@
 <p id="notice"><%= notice %></p>
+<div class="cert" style="   background-image: 
+                                url(<%= asset_url(@activity.image.url(:cover)) %>);
+                                background-size: cover;  background-position: center center;">
+  <div class="cert-header">
+    <div class="cert-header-title">   
+      <h1><%= link_to @activity.name, activity_path(@activity)%></h1>
+    </div>
+    <div class="cert-header-tag">
+      #inovação #empreendedorismo #workshop
+    </div>
+  </div>
+</div>
+</br>
+<p><strong>26 ABR 18:30 -  Laboratório Aberto do ITA - CCM (dentro do CTA) - Organizador: <%= @activity.entities.first.name %></strong></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @activity.name %>
-</p>
-<p>
-  <strong>Criador:</strong>
-  <%= @activity.entities.first.name %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<section id="two">
+  <h2>Intro</h2>
+  <p>
+    <%= @activity.intro %>
+  </p>
+</section>
+<section id="three">
+  <h2>Conteúdo</h2>
+  <p>
+    <%= raw @activity.content %>
+  </p>
+</section>
+<section id="four">
+  <h2>Participantes</h2>
+    <% if %>
+        <% @activity.certificates.each do |classmates| %>
+            <%= link_to image_tag(classmates.owner.image.url(:small), :alt => classmates.owner.name), entity_path(classmates.owner) , class: 'image avatar' %>
+        <% end %>
+    <% end %>
+</section>
+<section>
+  <p align="center">
+    <a href="http://goo.gl/forms/Lp9U7ZkYDc" class="button">Enviar Feedback</a>
+  </p>
+</section>

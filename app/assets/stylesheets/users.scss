@@ -1,0 +1,37 @@
+/* User Header */
+
+	.user-header {
+		background-color:	#f7f7f7;
+	    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    	text-align: center;
+    	height: 200px;
+	}
+	.user-header-content {
+		background-color:		_palette(accent2, bg);
+		height: 150px;
+		color: _palette(accent1, fg);
+		padding: 5px;
+		vertical-align: bottom;
+		text-align: left;
+		h1 {
+			font-size: 3.0em;
+			line-height: 3.0em;
+			margin-top: 50px;
+			color: #ffffff;
+		}
+		h2 {
+			margin-top: -90px;
+			color: #f7f7f7;
+		}
+	}
+	.user-image {
+	    position: relative;
+	    bottom: 120px;
+	    right: -195px;
+	}
+	.user-img{
+		border-style: solid;
+		border-color: #f7f7f7;
+		border-width: 5px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}

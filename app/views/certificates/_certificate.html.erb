@@ -1,0 +1,74 @@
+<div class="12u 12u$(xsmall)">
+    <div class="cert" style="   background-image: url(<%= asset_url('overlay.png') %>),
+                                url(<%= asset_url(certificate.activity.image.url(:cover)) %>);
+                                background-size: cover;  background-position: center center;">
+        <div class="cert-header">
+            <div class="cert-header-title">
+                <h1><%= link_to certificate.activity.name, activity_path(certificate.activity)%></h1>
+                <h2>com <%= link_to certificate.provider.name, entity_path(certificate.provider)%></h2>
+            </div>
+            <div class="cert-header-tag">
+                #inovação #empreendedorismo #workshop
+            </div>
+            <% if !certificate.paid %>
+                <div class="cert-header-grade">
+                    <h2>
+                        <% grade = certificate.grade %>
+                        <% if grade == 0 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 1 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 2 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 2 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 3 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 4 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 4 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 5 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 6 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 6 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 7 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 8 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 8 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 9 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 10 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                    </h2>
+                </div>
+            <% end %>
+        </div>
+        <div class="cert-body">
+            <div class="col-sm-10 content">
+                <i class="fa fa-quote-left" aria-hidden="true"></i>
+                <h3><%= certificate.public_comment %></h3> 
+                <i class="fa fa-quote-right" aria-hidden="true"></i>   
+            </div>
+            <div class="cert-prov-avatar col-sm-2 content">
+                <%= link_to image_tag(certificate.provider.image.url(:square)), entity_path(certificate.provider) , class: 'image avatar' %></br>
+            </div>
+        </div>
+        <div class="cert-footer">
+            <% if %>
+                <% certificate.activity.certificates.each do |classmates| %>
+                    <%= link_to image_tag(classmates.owner.image.url(:small)), entity_path(classmates.owner) , class: 'image avatar' %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
