@@ -1,0 +1,19 @@
+
+
+<% if !@entities.empty? %>
+</br></br>
+    <h1>Pessoas encontradas</h1>
+    <section>
+    <% @entities.each do |entity| %>
+        
+            <div class="col-lg-12 user-card">
+                <div class="col-sm-3">	<%= image_tag(entity.image.url(:square), class: 'image avatar avatar-small') %></div>
+                <div class="col-sm-9"><h1><%= link_to entity.name, entity_path(entity) %></h1></div>
+            </div>
+        
+    <% end %>
+    </section>
+<% else %>
+</br></br>
+    <h1>Nenhuma pessoa encontrada</h1>
+<% end %>

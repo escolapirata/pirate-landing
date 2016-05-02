@@ -1,0 +1,37 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<% if @entity.intro %>
+  <section id="one">
+    <h2>Sobre</h2>
+    <p><%= raw @entity.intro %></p>
+  </section>
+<% end %>
+
+<% if @entity.certificates.any? %>
+<section id="two">
+  <h2>Certificados</h2>
+    <%= render @entity.certificates %>
+</section>
+<% end %>
+
+
+<% if @entity.activities.any? %>
+  <section id="three">
+  <h2>Atividades criadas</h2>
+    <%= render @entity.activities %>
+  </section>
+<% end %>
+
+<% if @entity.owned_paths.any? %>
+  <section id="four">
+  <h2>Currículos criados</h2>
+    <%= render @entity.owned_paths %>
+  </p>
+<% end %>
+<section>
+  <p align="center">
+    <a href="http://goo.gl/forms/Lp9U7ZkYDc" class="button">Enviar Feedback</a>
+  </p>
+</section>

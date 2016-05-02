@@ -24,6 +24,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Facebook authentication'
+gem 'omniauth-facebook', '~> 3.0.0'
+
+# to handle with images
+gem 'paperclip'
+
+#To handle with selection fields in forms
+gem 'chosen-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

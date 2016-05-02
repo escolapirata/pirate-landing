@@ -1,13 +1,4 @@
-
-<!-- Header -->
-	<header id="header">
-		<a href="#" class="image avatar"><img src="<%= image_path('alt_logo.png') %>" alt="" /></a>
-		<h1>Somos a <strong>Escola Pirata</strong>.<br />
-		Viemos derrubar as</br> barreiras da educação.</h1>
-	</header>
-
-<!-- Main -->
-	<div id="main">
+<!-- Author: Murilo Narciso (murilokn@gmail.com) -->
 
 		<!-- One -->
 			<section id="one">
@@ -32,6 +23,17 @@
 			<section id="two">
 				<h2>Blog</h2>
 				<div class="row">
+					<article class="6u 12u$(xsmall) work-item">
+						<a class="image fit thumb"><%= image_tag("problema.jpg") %></a>
+						<h3><a href="https://medium.com/escola-pirata/o-problema-%C3%A9-nosso-a-solu%C3%A7%C3%A3o-tamb%C3%A9m-9b3193c1c419#.5zhrq8xq8">
+							O problema é nosso. A solução também. </br>Quem vai mudar o ensino superior?</a></h3>
+						<p>	Aos muitos universitários por aí.</br>
+						Algo que aprendi nos últimos tempos é que muitas pessoas andam insatisfeitas com o sistema educacional. 
+						No caso dos jovens, isso é especialmente verdade para o ensino superior. Fala-se sobre como ele está acabando 
+						com nossa motivação, minando nossa criatividade e nos preparando mal para o que vamos encontrar no mercado de 
+						trabalho. De fato, as mudanças no mundo e na sociedade tem deixado cada vez mais evidente a necessidade 
+						de grandes mudanças. <a href="https://medium.com/escola-pirata/os-dois-grandes-segredos-do-ensino-superior-e841621aa57e#.ca46nyqm5">continuar lendo...</a></p>
+					</article>
 					<article class="6u 12u$(xsmall) work-item">
 						<a class="image fit thumb"><%= image_tag("signal.jpg") %></a>
 						<h3><a href="https://medium.com/escola-pirata/os-dois-grandes-segredos-do-ensino-superior-e841621aa57e#.ca46nyqm5">Os dois grandes segredos do Ensino Superior </br>É tudo sobre o seu sinal.</a></h3>
@@ -90,37 +92,3 @@ O tempo passa e a dura realidade se apresenta: mais professores ruins que bons, 
 				</div>
 			</section>
 			-->
-	</div>
-
-<!-- Footer -->
-	<footer id="footer">
-		<ul class="icons">
-			<li><a href="https://www.facebook.com/escolapirata/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-			<li><a href="https://medium.com/escola-pirata" target="_blank" class="icon fa fa-medium"><span class="label">Medium</span></a></li>
-			<li><a href="mailto:murilokn@gmail.com" target="_blank" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-		</ul>
-		<ul class="copyright">
-			<li>&copy; Escola Pirata</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-		</ul>
-	</footer>
-
-<!-- Modal -->
-	<div class="modal" tabindex="-3" role="dialog" id="betaTester">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Quero ser Beta tester!</h4>
-	      </div>
-	      <div class="modal-body" id="beta-modal">
-	      	<%= render 'betatester_form' %>
-
-	      </div>
-  	      <div class="modal-body" id="beta-success" style="display:none">
-	      	E-mail enviado com sucesso. Te avisaremos assim que nossa versão beta estiver no ar.
-	      </div>
-	    </div><!-- /.modal-content -->
-	  </div><!-- /.modal-dialog -->
-	</div><!-- /.modal -->
-	
-	<!-- New Git -->

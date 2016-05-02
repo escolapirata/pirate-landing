@@ -1,0 +1,19 @@
+<header id="header">
+    
+    <% if controller.controller_name=="entities"&&controller.action_name=="show" %>
+    	
+    	<%= image_tag(@entity.image.url(:square), class: 'image avatar') %></br>
+    	<h1><strong><%= @entity.name %></strong></h1>
+    	<strong>#inovação</br>#empreendedorismo</br>#workshop</br></strong>
+    	
+    <% else %>
+    	<%= link_to image_tag('alt_logo.png'), root_path, class: "image avatar" %>
+		<h1>Somos a <strong>Escola Pirata</strong>.<br />
+		Viemos derrubar as</br> barreiras da educação.</h1>	</br> 
+
+
+	<% end %>
+	<div>
+</div>
+	
+</header>

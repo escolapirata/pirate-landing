@@ -1,0 +1,19 @@
+<div class="4u 12u$(xsmall)">
+    <div class="card">
+        <div class="card-header" style="background-image:   url(<%= asset_url('overlay.png') %>), url(<%= asset_url(path.image.url(:cover)) %>)">
+            <h1>
+               <%= link_to path.name, path_path(path)%>  
+            </h1>
+            
+        </div>
+        <div class="card-body">
+            <%= path.path_owner.name %>
+            <%= path.path_creator.name %>
+            </br>
+            <%= link_to 'Show', path %> | 
+            <%= link_to 'Edit', edit_path_path(path) %> |
+            <%= link_to 'Destroy', path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            
+        </div>
+    </div>
+</div>
