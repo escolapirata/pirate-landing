@@ -11,7 +11,12 @@
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-default btn-outline" href="#">
-                <span class="icon-pirata"></span>
+                <% if current_user&&current_user.uid=="10153629801172736" %>
+                    <span class="fa fa-bars"></span>
+                <% else %>
+                    <%= image_tag('top_logo_sm.png', height: '32', alt: "Escola Pirata") %>
+                    
+                <% end %>
             </a>
             
             <%= form_tag root_path, :method => 'get', :class => 'navbar-form-custom' do %>

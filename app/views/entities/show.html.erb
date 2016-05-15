@@ -1,13 +1,39 @@
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <% if notice %>
+        <div class="alert alert-info alert-dismissable">
+                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                                <%= notice %>
+        </div>
+    <% end %>
 
-<% if @entity.intro&&@entity.intro!="" %>
-  <section id="one">
-    <h2>Sobre</h2>
-    <p><%= raw @entity.intro %></p>
-  </section>
-<% end %>
+    <div class="row m-b-lg m-t-lg">
+        <div class="col-md-6">
+
+            <div class="profile-image">
+                <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
+            </div>
+            <div class="profile-info">
+                <div class="">
+                    <div>
+                        <h2 class="no-margins">
+                            Alex Smith
+                        </h2>
+                        <h4>Founder of Groupeq</h4>
+                        <small>
+                           <% if @entity.intro&&@entity.intro!="" %>
+                              <p><%= raw @entity.intro %></p>
+                          <% end %>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <% if @entity.certificates.any? %>
 <section id="two">
@@ -32,6 +58,6 @@
 <% end %>
 <section>
   <p align="center">
-    <a href="http://goo.gl/forms/Lp9U7ZkYDc" class="button">Enviar Feedback</a>
+    
   </p>
 </section>
