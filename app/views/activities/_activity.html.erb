@@ -4,19 +4,26 @@
     </div>
 
     <div class="vertical-timeline-content ibox">
-        <div class="ibox-header">
-            <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
-        </div>
+        <div class="ibox-title">
         <h2>
             <%= link_to activity.name, activity_path(activity)%></br>
             <small>26 ABR 18:30 - Laboratório Aberto do ITA - CCM</small>
         </h2>
-          <ul class="tag-list" style="padding: 0">
-                <li><a href="">Inovação</a></li>
+        </div>
+        <div>
+            <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
+        </div>
+
+        <div class="ibox-content">
+            <p><%= activity.description %></p>
+        </div>
+        <div class="ibox-footer">
+            <ul class="tag-list">
+                <li><a href="" class="btn btn-sm btn-default">Inovação</a></li>
                 <li><a href="">Empreendedorismo</a></li>
                 <li><a href="">Workshop</a></li>
-          </ul>
-        <div class="hr-line-dashed"></div>
-        <p><%= activity.description %></p>
+            </ul>
+            </br>
+        </div>
     </div>
 </div>

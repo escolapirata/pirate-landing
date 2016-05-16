@@ -14,13 +14,14 @@
 
                 #inovação #empreendedorismo #workshop
               </div>
+          </div>
           <div class="ibox-content">
                 
                 <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <blockquote>
                     <% if !certificate.paid %>
-                    <h2>
+                    <h3>
                         <% grade = certificate.grade %>
                         <% if grade == 0 %>
                             <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
@@ -57,14 +58,14 @@
                         <% elsif grade >= 10 %>
                             <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
                         <% end %>
-                    </h2>
+                    </h3>
                 <% end %>
                         <p><%= certificate.public_comment %></p>
                         <small><%= link_to certificate.provider.name, entity_path(certificate.provider)%></small>
                     </blockquote>
                 </div>
-                <div class="col-sm-3">
-                    <%= link_to image_tag(certificate.provider.image.url(:square), :class => 'img-responsive img-circle', :height => '150px'), entity_path(certificate.provider) %>
+                <div class="col-sm-2">
+                    <%= link_to image_tag(certificate.provider.image.url(:small), :class => 'img-responsive img-circle', :height => '150px'), entity_path(certificate.provider) %>
                 </div>
             </div>
         </div>
@@ -75,5 +76,4 @@
                 <% end %>
             <% end %>
         </div>
-      </div>
 </div>

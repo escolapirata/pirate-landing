@@ -6,23 +6,13 @@
                     <%= link_to '/' do %>
                         <%= image_tag('top_logo_md_white.png', width: '100%', alt: "Escola Pirata") %></br>
                     <% end %>
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear">
-                            <% if current_user %>
-                            <span class="block m-t-xs">
-                                <strong class="font-bold">Logado como</strong>
-                            </span> <span class="text-muted text-xs block"><%= current_user.name %><b class="caret"></b></span>
-                            <% else %>
-                            <span class="block m-t-xs align-right"> 
-                            Somos a <strong>Escola Pirata</strong>,</br>
-                            Viemos derrubar as barreiras da educação!
-                            </span>
-                            <% end %>
-                        </span>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><%= link_to 'Sair', signout_path %></li>
-                    </ul>
+                    <span class="clear"></br>
+                        <% if current_user %>
+                        <span class="block m-t-xs">
+                            <strong class="font-bold">Logado como</strong>
+                        </span> <span class="text-muted text-xs block"><%= current_user.name %></span>
+                        <% end %>
+                    </span>
                 </div>
                 <div class="logo-element">
                     <%= link_to image_tag('alt_logo.png', size: '32x32', alt: "Escola Pirata"), root_path %>
@@ -55,6 +45,17 @@
                     <i class="fa fa-facebook"></i> <span class="nav-label">Entrar com o Facebook</span>
                     <% end %>
                 </li>
+                <li>
+                    <a href="#">
+                        
+                    <span class="nav-label">
+                        Somos a <strong>Escola Pirata</strong>,</br>
+                        Viemos derrubar as barreiras da educação!
+                    </span>
+                    </a>    
+
+                </li>                        
+                        
             <% end %>
         </ul>
 
