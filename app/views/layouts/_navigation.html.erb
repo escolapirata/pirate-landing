@@ -1,0 +1,64 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <%= link_to '/' do %>
+                        <%= image_tag('top_logo_md_white.png', width: '100%', alt: "Escola Pirata") %></br>
+                    <% end %>
+                    <span class="clear"></br>
+                        <% if current_user %>
+                        <span class="block m-t-xs">
+                            <strong class="font-bold">Logado como</strong>
+                        </span> <span class="text-muted text-xs block"><%= current_user.name %></span>
+                        <% end %>
+                    </span>
+                </div>
+                <div class="logo-element">
+                    <%= link_to image_tag('alt_logo.png', size: '32x32', alt: "Escola Pirata"), root_path %>
+                </div>
+            </li>
+            <% if is_admin %>
+                <li class="<% 'active' if current_page?('/') %>">
+                    <%= link_to certificates_path do %>
+                    <i class="fa fa-certificate"></i> <span class="nav-label">Certificados</span>
+                    <% end %>
+                </li>
+                <li class="<% 'active' if current_page?('/') %>">
+                    <%= link_to activities_path do %>
+                    <i class="fa fa-briefcase"></i> <span class="nav-label">Atividades</span>
+                    <% end %>
+                </li>
+                <li class="<% 'active' if current_page?('/') %>">
+                    <%= link_to entities_path do %>
+                    <i class="fa fa-users"></i> <span class="nav-label">Entidades</span>
+                    <% end %>
+                </li>
+                <li class="<% 'active' if current_page?('/') %>">
+                    <%= link_to paths_path do %>
+                    <i class="fa fa-road"></i> <span class="nav-label">Jornadas</span>
+                    <% end %>
+                </li>
+            <% else %>
+                <li class="<% 'active' if current_page?('/') %>">
+                    <%= link_to '/auth/facebook' do %>
+                    <i class="fa fa-facebook"></i> <span class="nav-label">Entrar com o Facebook</span>
+                    <% end %>
+                </li>
+                <li>
+                    <a href="#">
+                        
+                    <span class="nav-label">
+                        Somos a <strong>Escola Pirata</strong>,</br>
+                        Viemos derrubar as barreiras da educação!
+                    </span>
+                    </a>    
+
+                </li>                        
+                        
+            <% end %>
+        </ul>
+
+    </div>
+</nav>
+

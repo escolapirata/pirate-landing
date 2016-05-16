@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :get_entities
   helper_method :get_activities
   helper_method :require_admin
+  helper_method :is_admin
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -19,6 +20,13 @@ class ApplicationController < ActionController::Base
   def require_admin
     if !(current_user&&current_user.uid=="10153629801172736")
     redirect_to root_path
+    end
+  end
+  def is_admin
+    if current_user&&current_user.uid=="10153629801172736"
+      return true
+    else
+      return false
     end
   end
 end

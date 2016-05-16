@@ -1,18 +1,29 @@
-<div class="12u 12u$(xsmall)">
-    <div class="cert" style="   background-image: url(<%= asset_url('overlay.png') %>),
-                                url(<%= asset_url(activity.image.url(:cover)) %>);
-                                background-size: cover;  background-position: center center;">
-        <div class="cert-header">
-            <div class="cert-header-title">
-                <h1><%= link_to activity.name, activity_path(activity)%>  </h1>
-            </div>
-            <div class="cert-header-tag">
-                #inovação #empreendedorismo #workshop
-            </div>
+<div class="vertical-timeline-block">
+    <div class="vertical-timeline-icon navy-bg">
+      <i class="fa fa-plus"></i>
+    </div>
+
+    <div class="vertical-timeline-content ibox">
+        <div class="ibox-title">
+        <h2>
+            <%= link_to activity.name, activity_path(activity)%></br>
+            <small>26 ABR 18:30 - Laboratório Aberto do ITA - CCM</small>
+        </h2>
         </div>
-        <div class="card-body">
-            <h2>26 ABR 18:30 - Laboratório Aberto do ITA - CCM</h2>
-            <%= activity.description %>
+        <div>
+            <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
+        </div>
+
+        <div class="ibox-content">
+            <p><%= activity.description %></p>
+        </div>
+        <div class="ibox-footer">
+            <ul class="tag-list">
+                <li><a href="" class="btn btn-sm btn-default">Inovação</a></li>
+                <li><a href="">Empreendedorismo</a></li>
+                <li><a href="">Workshop</a></li>
+            </ul>
+            </br>
         </div>
     </div>
 </div>
