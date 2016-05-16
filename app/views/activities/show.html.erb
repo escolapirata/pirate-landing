@@ -1,41 +1,79 @@
-<p id="notice"><%= notice %></p>
-<div class="cert" style="   background-image: 
-                                url(<%= asset_url(@activity.image.url(:cover)) %>);
-                                background-size: cover;  background-position: center center;">
-  <div class="cert-header">
-    <div class="cert-header-title">   
-      <h1><%= link_to @activity.name, activity_path(@activity)%></h1>
-    </div>
-    <div class="cert-header-tag">
-      #inovação #empreendedorismo #workshop
-    </div>
+<div class="wrapper wrapper-content">
+  <div class="row animated fadeInRight">
+      <div class="col-md-4">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h4><%= link_to @activity.name, activity_path(@activity)%></small></h4>
+              </div>
+              <div class="ibox-content no-padding border-left-right">
+                  <%= image_tag @activity.image.url(:cover), class:"img-responsive" %>
+              </div>
+              <div class="ibox-content profile-content">
+                  <div class="row">
+                    <div class="col-sm-1"><span class="fa fa-calendar"></span></span></div>
+                    <div class="col-sm-10">26 ABR 18:30</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-1"><span class="fa fa-map-marker"></span></span></div>
+                    <div class="col-sm-10">Laboratório Aberto do ITA - CCM (dentro do CTA)</div>
+                  </div>
+                  <h5>Introdução</h5>
+                  <p>
+                      <%= @activity.intro %>
+                  </p>
+                  <h5 class="tag-title">Tags</h5>
+                  <ul class="tag-list" style="padding: 0">
+                    <li><a href="">Inovação</a></li>
+                    <li><a href="">Empreendedorismo</a></li>
+                    <li><a href="">Workshop</a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+              </div>
+          </div>
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                Organizadores
+              </div>
+              <div class="ibox-content">
+                  <% @activity.entities.each do |entity| %>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <%= link_to entity_path(entity) do %>
+                          <%= image_tag entity.image.url(:small), class:"img-responsive img-circle" %>
+                        <% end %>
+                      </div>
+                      <div class="col-sm-9">
+                        <h4><%= link_to entity.name, entity_path(entity) %></h4>
+                      </div>
+                    </div>
+                  <% end %>
+              </div>
+          </div>
+
+      </div>
+      <div class="col-md-8">
+          <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                  <h5>Conteúdo</h5>
+              </div>
+              <div class="ibox-content">
+  
+                <%= raw @activity.content %>
+  
+              </div>
+          </div>
+          <div class="ibox float-e-margins">
+            <div class="ibox-title">
+              <h5>Participantes</h5>
+            </div>
+            <div class="ibox-content">
+              <% if %>
+                  <% @activity.certificates.each do |classmates| %>
+                      <%= link_to image_tag(classmates.owner.image.url(:small), :alt => classmates.owner.name, :class => 'img-circle'), entity_path(classmates.owner)  %>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+      </div>
   </div>
 </div>
-</br>
-<p><strong>26 ABR 18:30 -  Laboratório Aberto do ITA - CCM (dentro do CTA) - Organizador: <%= @activity.entities.first.name %></strong></p>
-
-<section id="two">
-  <h2>Intro</h2>
-  <p>
-    <%= @activity.intro %>
-  </p>
-</section>
-<section id="three">
-  <h2>Conteúdo</h2>
-  <p>
-    <%= raw @activity.content %>
-  </p>
-</section>
-<section id="four">
-  <h2>Participantes</h2>
-    <% if %>
-        <% @activity.certificates.each do |classmates| %>
-            <%= link_to image_tag(classmates.owner.image.url(:small), :alt => classmates.owner.name), entity_path(classmates.owner) , class: 'image avatar' %>
-        <% end %>
-    <% end %>
-</section>
-<section>
-  <p align="center">
-    <a href="http://goo.gl/forms/Lp9U7ZkYDc" class="button">Enviar Feedback</a>
-  </p>
-</section>

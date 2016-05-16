@@ -1,24 +1,16 @@
 <div class="wrapper wrapper-content animated fadeInRight">
-    <% if notice %>
-        <div class="alert alert-info alert-dismissable">
-                                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                                <%= notice %>
-        </div>
-    <% end %>
-
     <div class="row m-b-lg m-t-lg">
-        <div class="col-md-6">
-
+        <div class="col-md-9">
             <div class="profile-image">
-                <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                <%= image_tag(@entity.image.url(:square), class: 'img-circle circle-border m-b-md') %>
             </div>
             <div class="profile-info">
                 <div class="">
                     <div>
                         <h2 class="no-margins">
-                            Alex Smith
+                            <%= @entity.name %>
                         </h2>
-                        <h4>Founder of Groupeq</h4>
+                        <h4>Headline</h4>
                         <small>
                            <% if @entity.intro&&@entity.intro!="" %>
                               <p><%= raw @entity.intro %></p>
@@ -28,6 +20,54 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <h5 class="tag-title">Tags</h5>
+            <ul class="tag-list" style="padding: 0">
+                <li><a href="">Inovação</a></li>
+                <li><a href="">Empreendedorismo</a></li>
+                <li><a href="">Workshop</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <% if @entity.intro&&@entity.intro!="" %>                                  
+                <div class="ibox">
+                    <div class="ibox-content">
+                      <h3>Sobre <%= @entity.name %></h3>
+                      <p class="small">
+                          <%= raw @entity.intro %>
+                      </p>
+                      <p class="small font-bold">
+                          <span><i class="fa fa-circle text-navy"></i> Online status</span>
+                      </p>
+                    </div>
+                </div>
+            <% end %>
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h3>Conexões</h3>
+                    <div class="user-friends">
+                        <% @entities.each do |entity| %>
+                            <%= link_to image_tag(entity.image.url(:small), :class => 'img-circle'), entity_path(entity)  %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 m-b-lg">
+          <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+              <% if @entity.certificates.any? %>
+                  <%= render @entity.certificates %>
+              <% end %>      
+              <% if @entity.activities.any? %>
+                  <%= render @entity.activities %>
+              <% end %>
+              <% if @entity.owned_paths.any? %>
+                  <%= render @entity.owned_paths %>
+              <% end %>
+          </div>
+        </div>
     </div>
 </div>
 
@@ -35,29 +75,4 @@
 
 
 
-<% if @entity.certificates.any? %>
-<section id="two">
-  <h2>Certificados</h2>
-    <%= render @entity.certificates %>
-</section>
-<% end %>
 
-
-<% if @entity.activities.any? %>
-  <section id="three">
-  <h2>Atividades criadas</h2>
-    <%= render @entity.activities %>
-  </section>
-<% end %>
-
-<% if @entity.owned_paths.any? %>
-  <section id="four">
-  <h2>Currículos criados</h2>
-    <%= render @entity.owned_paths %>
-  </p>
-<% end %>
-<section>
-  <p align="center">
-    
-  </p>
-</section>

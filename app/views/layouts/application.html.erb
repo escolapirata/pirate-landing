@@ -8,26 +8,33 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
 </head>
-<body <% if !current_user||!current_user.uid=="10153629801172736" %> class="top-navigation"  <% end %>>
+<body >
   <!-- Wrapper-->
   <div id="wrapper"> 
-
   
-    <% if current_user&&current_user.uid=="10153629801172736" %>
     <!-- Admin Navbar -->
-    	<%= render 'layouts/navigation' %>
-    <% end %>
+    <%= render 'layouts/navigation' %>
+
     
     <!-- Page wraper -->
     <div id="page-wrapper" class="gray-bg">
 
         <!-- Page wrapper -->
         <%= render 'layouts/topnavbar' %>
-
+        
+        <!-- Notices -->
+        <% if notice %>
+        <div class="alert alert-info alert-dismissable">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+          <%= notice %>
+        </div>
+        
+        <% end %>
         <!-- Main view  -->
         <%= yield %>
-  
+        </br></br>
         <!-- Footer -->
         <%= render 'layouts/footer' %>
 

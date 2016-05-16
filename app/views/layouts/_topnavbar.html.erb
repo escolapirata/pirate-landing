@@ -1,35 +1,25 @@
-
-    <% if controller.controller_name=="entities"&&controller.action_name=="show" %>
-    	
-    	<%= image_tag(@entity.image.url(:square), class: 'image avatar') %></br>
-    	<h1><strong><%= @entity.name %></strong></h1>
-    	<strong>#inovação</br>#empreendedorismo</br>#workshop</br></strong>
-    	
-	<% end %>
-
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-default btn-outline" href="#">
-                <% if current_user&&current_user.uid=="10153629801172736" %>
-                    <span class="fa fa-bars"></span>
-                <% else %>
-                    <%= image_tag('top_logo_sm.png', height: '32', alt: "Escola Pirata") %>
-                    
-                <% end %>
+                <span class="fa fa-bars"></span>
             </a>
+
+            
             
             <%= form_tag root_path, :method => 'get', :class => 'navbar-form-custom' do %>
-                <div class="form-group">
-                	<%= text_field_tag :name, params[:name], :class => 'form-control',  :id => 'top-search', :placeholder => 'Buscar pessoa...' %>
+                <div class="input-group">
+                  <%= text_field_tag :name, params[:name], :class => 'form-control', :placeholder => 'Buscar pessoa...  ' %>
                 </div>
             <% end %>
+            
         </div>
         <ul class="nav navbar-top-links navbar-right">
+
             <% if current_user&&current_user.uid=="10153629801172736" %>
                 <li>
                     <%= link_to signout_path do %>
-                        <i class="fa fa-sign-out"></i> Log out
+                        <i class="fa fa-sign-out"></i> Sair
                     <% end %>
                 </li>
             <% end %>
