@@ -76,7 +76,7 @@ FacebookAuthExample::Application.routes.draw do
 end
 
 Registration::Application.routes.draw do
-  get 'preregister', to 'sessions#preregister'
+  post 'preregister', to: 'sessions#preregister'
   
-  get 'register', to 'sessions#register'
+  post 'register', to: 'sessions#register'
 end

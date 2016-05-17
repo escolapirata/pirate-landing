@@ -12,8 +12,8 @@ class User < Entity
     end
   end
   
-  def self.pre_registration (data)
-    where (email: data.email).first_or_create do |user|
+  def self.pre_registration(data)
+    where(email: data.email).first_or_create do |user|
       user.provider = data.provider
       user.name = data.name
       user.email = data.email
@@ -24,8 +24,8 @@ class User < Entity
     end
   end
   
-  def self.registration (data)
-    where (email: data.email).first_or_create do |user|
+  def self.registration(data)
+    where(email: data.email).first_or_create do |user|
       user.provide = data.provider
       user.name = data.name
       user.email = data.email
@@ -38,7 +38,7 @@ class User < Entity
   end
   
   def generateInviteCode()
-    SecureRandom.base58 (24)
+    SecureRandom.base58 (8)
   end
 end
 
