@@ -9,9 +9,8 @@ class UsersController < ApplicationController
   
   def preregister
     if is_admin
-      print "acapstubum"
       @user = User.pre_registration(pre_user_params, provider: 'origin')
-      if preUser.save
+      if @user.save
         # Handle a successful save.
       else
         render 'pre_registration'
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
   end
   
   def register
-    user = User.register(user_params, provider: 'origin')
+    user = User.registration(user_params, provider: 'origin')
     session[:user_id] = user.id
     redirect_to root_path
   end

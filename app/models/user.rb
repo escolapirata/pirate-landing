@@ -1,4 +1,4 @@
-class User < Entity
+class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -17,28 +17,24 @@ class User < Entity
       user.provider = provider
       user.name = data[:name]
       user.email = data[:email]
-      #user.registerCompleted = false
-      #user.isRegistered = false
-      user.inviteCode = generateInviteCode()
+      user.inviteCode = SecureRandom.base64 (8)
       user.save!
     end
   end
   
   def self.registration(data, provider)
-    where(email: data.email).first_or_create do |user|
+    where(email: data[:email]).first_or_create do |user|
       user.provider = provider
-      user.name = data.name
-      user.email = data.email
-      user.urlImage = data.image
-      user.registerCompleted = false #ver quais campos essenciais faltam
-      user.username = data.username
+      user.name = data[:name]
+      user.email = data[:email]
+      #user.urlImage = data.image
+      #user.registerCompleted = false #ver quais campos essenciais faltam
+      #user.username = data.username
       user.isRegistered = true
       user.save!
     end
   end
   
-  def generateInviteCode()
-    SecureRandom.base58 (8)
-  end
+  
 end
 
