@@ -17,8 +17,8 @@ class User < Entity
       user.provider = provider
       user.name = data[:name]
       user.email = data[:email]
-      user.registerCompleted = false
-      user.isRegistered = false
+      #user.registerCompleted = false
+      #user.isRegistered = false
       user.inviteCode = generateInviteCode()
       user.save!
     end
