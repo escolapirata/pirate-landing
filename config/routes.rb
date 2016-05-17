@@ -81,11 +81,14 @@ FacebookAuthExample::Application.routes.draw do
 end
 
 Registration::Application.routes.draw do
-  post 'preregister', to: 'sessions#preregister'
+  post 'preregister', to: 'users#preregister'
   
-  get 'preregister', to: 'sessions#newPreRegister'
+  get 'preregister', to: 'users#newPreRegister'
   
-  post 'register', to: 'sessions#register'
+  post 'register', to: 'users#register'
   
-  get 'register', to: 'sessions#newRegister'
+  get 'register', to: 'users#newRegister'
+  
+  get 'users', :to => 'users#show', :as => :users
+  
 end
