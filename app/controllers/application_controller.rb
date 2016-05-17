@@ -11,10 +11,7 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-<<<<<<< HEAD
-  
-  
-=======
+
   def get_entities
     @entities = Entity.all
   end
@@ -26,7 +23,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
     end
   end
->>>>>>> master
   def is_admin
     if (current_user&&(current_user.uid=="10153629801172736" || current_user.uid == "10153542298915875"))
       return true

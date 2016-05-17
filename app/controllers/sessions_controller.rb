@@ -10,6 +10,9 @@ class SessionsController < ApplicationController
     redirect_to root_path    
   end
   
+  def newPreRegister
+  end
+  
   def preregister
     if is_admin
       preUser = User.pre_registration(pre_user_params, provider: 'origin')
@@ -20,6 +23,9 @@ class SessionsController < ApplicationController
       end
     redirect_to root_path
     end
+  end
+  
+  def newRegister
   end
   
   def register

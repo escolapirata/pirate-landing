@@ -83,5 +83,9 @@ end
 Registration::Application.routes.draw do
   post 'preregister', to: 'sessions#preregister'
   
+  get 'preregister', to: 'sessions#newPreRegister'
+  
   post 'register', to: 'sessions#register'
+  
+  get 'register', to: 'sessions#newRegister'
 end
