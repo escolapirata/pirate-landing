@@ -12,11 +12,11 @@ class User < Entity
     end
   end
   
-  def self.pre_registration(data)
-    where(email: data.email).first_or_create do |user|
-      user.provider = data.provider
-      user.name = data.name
-      user.email = data.email
+  def self.pre_registration(data, provider)
+    where(email: data[:email]).first_or_create do |user|
+      user.provider = provider
+      user.name = data[:name]
+      user.email = data[:email]
       user.registerCompleted = false
       user.isRegistered = false
       user.inviteCode = generateInviteCode()
@@ -24,9 +24,9 @@ class User < Entity
     end
   end
   
-  def self.registration(data)
+  def self.registration(data, provider)
     where(email: data.email).first_or_create do |user|
-      user.provide = data.provider
+      user.provider = provider
       user.name = data.name
       user.email = data.email
       user.urlImage = data.image
