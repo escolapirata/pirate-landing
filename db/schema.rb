@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517205526) do
+ActiveRecord::Schema.define(version: 20160517220639) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20160517205526) do
     t.datetime "oauth_expires_at"
     t.string   "urlImage"
     t.string   "intro"
+    t.string   "inviteCode"
+    t.boolean  "isRegistered",       default: false, null: false
+    t.boolean  "registerCompleted",  default: false, null: false
+    t.string   "username"
   end
 
   create_table "ownerships", force: :cascade do |t|

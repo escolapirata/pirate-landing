@@ -4,12 +4,13 @@ class UsersController < ApplicationController
   end
   
   def newPreRegister
+    require_admin
     @user=User.new
   end
   
   def preregister
     if is_admin
-      @user = User.pre_registration(pre_user_params, provider: 'origin')
+      @user = User.pre_registration(pre_user_params, 'origin')
       if @user.save
         # Handle a successful save.
       else
@@ -24,7 +25,7 @@ class UsersController < ApplicationController
   end
   
   def register
-    user = User.registration(user_params, provider: 'origin')
+    user = User.registration(user_params, 'origin')
     session[:user_id] = user.id
     redirect_to root_path
   end
