@@ -38,6 +38,7 @@ class User < Entity
   end
   
   def generateInviteCode()
+    SecureRandom.base58 (24)
   end
 end
 
