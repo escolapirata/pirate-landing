@@ -11,4 +11,31 @@ class User < Entity
       user.save!
     end
   end
+  
+  def self.pre_registration (data)
+    where (email: data.email).first_or_create do |user|
+      user.provider = data.provider
+      user.name = data.name
+      user.email = data.email
+      user.registerCompleted = false
+      user.isRegistered = false
+      user.inviteCode = generateInviteCode()
+      user.save!
+    end
+  end
+  
+  def self.registration (data)
+    where (email: data.email).first_or_create do |user|
+      user.provide = data.provider
+      user.name = data.name
+      user.email = data.email
+      user.urlImage = data.image
+      user.registerCompleted = false #ver quais campos essenciais faltam
+      user.username = data.username
+      user.isRegistered = true
+      user.save!
+    end
+  end
 end
+
+
