@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escola Pirata</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
-<div>
-  <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= link_to "Sign out", signout_path, id: "sign_out" %>
-  <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-  <% end %>
-</div>
-
-<!-- Header -->
-	<%= render :partial => 'shared/header' %>
-
-
-<!-- Main -->
-	<div id="main">
-    <%= yield %>
-	</div>
-
-<!-- Footer -->
-	<%= render :partial => 'shared/footer' %>
-
-<% if controller_name == "pages" %>
-  <!-- Modal -->
-  	<div class="modal" tabindex="-3" role="dialog" id="betaTester">
-  	  <div class="modal-dialog">
-  	    <div class="modal-content">
-  	      <div class="modal-header">
-  	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  	        <h4 class="modal-title">Quero ser Beta tester!</h4>
-  	      </div>
-  	      <div class="modal-body" id="beta-modal">
-  	      	<%= render 'betatester_form' %>
+<body >
+  <!-- Wrapper-->
+  <div id="wrapper"> 
   
-  	      </div>
-    	      <div class="modal-body" id="beta-success" style="display:none">
-  	      	E-mail enviado com sucesso. Te avisaremos assim que nossa versão beta estiver no ar.
-  	      </div>
-  	    </div><!-- /.modal-content -->
-  	  </div><!-- /.modal-dialog -->
-  	</div><!-- /.modal -->
-<% end %>
+    <!-- Admin Navbar -->
+    <%= render 'layouts/navigation' %>
 
+    
+    <!-- Page wraper -->
+    <div id="page-wrapper" class="gray-bg">
+
+        <!-- Page wrapper -->
+        <%= render 'layouts/topnavbar' %>
+        
+        <!-- Notices -->
+        <% if notice %>
+        <div class="alert alert-info alert-dismissable">
+          <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+          <%= notice %>
+        </div>
+        
+        <% end %>
+        <!-- Main view  -->
+        <%= yield %>
+        </br></br>
+        <!-- Footer -->
+        <%= render 'layouts/footer' %>
+
+    </div>
+    <!-- End page wrapper-->
+    
+    <% if controller_name == "pages" && controller.action_name=="index"  %>
+      <!-- Modal -->
+      	<div class="modal" tabindex="-3" role="dialog" id="betaTester">
+      	  <div class="modal-dialog">
+      	    <div class="modal-content">
+      	      <div class="modal-header">
+      	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      	        <h4 class="modal-title">Quero ser Beta tester!</h4>
+      	      </div>
+      	      <div class="modal-body" id="beta-modal">
+      	      	<%= render 'betatester_form' %>
+      
+      	      </div>
+        	      <div class="modal-body" id="beta-success" style="display:none">
+      	      	E-mail enviado com sucesso. Te avisaremos assim que nossa versão beta estiver no ar.
+      	      </div>
+      	    </div><!-- /.modal-content -->
+      	  </div><!-- /.modal-dialog -->
+      	</div><!-- /.modal -->
+    <% end %>
+  </div>
+  <!-- End wrapper-->
 </body>
 </html>

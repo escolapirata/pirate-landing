@@ -1,10 +1,33 @@
-
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <% if @activities.any? %>
-    <%= render @activities %>
-  <% end %>
+<div class="wrapper wrapper-content animated fadeInRight">
+<% @activities.each do |activity| %>
+  <div class="col-lg-4">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5><%= link_to activity.name, activity_path(activity)%></h5>
+            <span class="label label-default pull-right">Encerrado</span>
+        </div>
+        <div class="ibox-header">
+          <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
+        </div>
+        <div class="ibox-content">
+            <div class="team-members">
+              <% if %>
+                  <% activity.certificates.each do |classmates| %>
+                      <%= link_to image_tag(classmates.owner.image.url(:small), :class => 'img-circle'), entity_path(classmates.owner)  %>
+                  <% end %>
+              <% end %>
+            </div>
+            <p>
+                <%= raw activity.intro %>
+            </p>
+        </div>
+        <div class="ibox-footer">
+          <%= link_to "Editar", edit_activity_path(activity), class:"btn btn-sm btn-primary" %>
+        </div>
+    </div>
+  </div>
+<% end %>
+<% if current_user %>
+  <%= link_to "Nova atividade", new_activity_path, class:"btn btn-lg btn-primary" %>
+<% end %>
 </div>
-<br>
-
-<%= link_to 'Nova Atividade', new_activity_path, class:"button" %>

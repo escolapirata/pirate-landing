@@ -1,0 +1,45 @@
+<%= form_for(@certificate) do |f| %>
+  <% if @certificate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@certificate.errors.count, "error") %> prohibited this certificate from being saved:</h2>
+
+      <ul>
+      <% @certificate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :provider_id %><br>
+    <%= f.collection_select :provider_id, @entities, :id, :name, {include_blank: false}, {multiple: false} %>
+  </div>
+  <div class="field">
+    <%= f.label :owner_id %><br>
+    <%= f.collection_select :owner_id, @entities, :id, :name, {include_blank: false}, {multiple: false} %>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br>
+    <%= f.number_field :grade %>
+  </div>
+  <div class="field">
+    <%= f.label :paid %><br>
+    <%= f.number_field :paid %>
+  </div>
+  <div class="field">
+    <%= f.label :public_comment %><br>
+    <%= f.text_field :public_comment %>
+  </div>
+  <div class="field">
+    <%= f.label :private_comment %><br>
+    <%= f.text_field :private_comment %>
+  </div>
+  <div class="field">
+    <%= f.label :activity_id %><br>
+    <%= f.collection_select :activity_id, @activities, :id, :name, {include_blank: false}, {multiple: false} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

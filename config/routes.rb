@@ -1,5 +1,7 @@
 
 Rails.application.routes.draw do
+  resources :certificates
+  resources :paths
   get 'sessions/create'
 
   get 'sessions/destroy'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
   post 'beta_testers/', to: 'beta_testers#create'
+  get 'pages/:name', to: 'pages#search'
   
   
   # Example of regular route:
@@ -67,6 +70,8 @@ end
 
 
 FacebookAuthExample::Application.routes.draw do
+  resources :certificates
+  resources :paths
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
     get 'signout', to: 'sessions#destroy', as: 'signout'

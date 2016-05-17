@@ -1,0 +1,28 @@
+<div class="row border-bottom">
+    <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-default btn-outline" href="#">
+                <span class="fa fa-bars"></span>
+            </a>
+
+            
+            
+            <%= form_tag root_path, :method => 'get', :class => 'navbar-form-custom' do %>
+                <div class="input-group">
+                  <%= text_field_tag :name, params[:name], :class => 'form-control', :placeholder => 'Buscar pessoa...  ' %>
+                </div>
+            <% end %>
+            
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+
+            <% if current_user&&current_user.uid=="10153629801172736" %>
+                <li>
+                    <%= link_to signout_path do %>
+                        <i class="fa fa-sign-out"></i> Sair
+                    <% end %>
+                </li>
+            <% end %>
+        </ul>
+    </nav>
+</div>

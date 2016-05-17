@@ -1,0 +1,79 @@
+<div class="vertical-timeline-block">
+  <div class="vertical-timeline-icon blue-bg">
+      <i class="fa fa-certificate"></i>
+  </div>
+  
+
+  <div class="vertical-timeline-content ibox">
+          <div class="ibox-title">
+              <div class="col-lg-9">
+                  <h1><%= link_to certificate.activity.name, activity_path(certificate.activity)%></h1>
+                  <h2>com <%= link_to certificate.provider.name, entity_path(certificate.provider)%></h2>
+              </div>
+              <div class="col-lg-3">
+
+                #inovação #empreendedorismo #workshop
+              </div>
+          </div>
+          <div class="ibox-content">
+                
+                <div class="row">
+                <div class="col-md-10">
+                    <blockquote>
+                    <% if !certificate.paid %>
+                    <h3>
+                        <% grade = certificate.grade %>
+                        <% if grade == 0 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 1 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 2 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 2 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 3 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 4 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 4 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 5 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 6 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 6 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 7 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 8 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                        <% if grade <= 8 %>
+                            <i class="fa fa-star-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade == 9 %>
+                            <i class="fa fa-star-half-o" aria-hidden="true" style="color: #FCA311"></i>
+                        <% elsif grade >= 10 %>
+                            <i class="fa fa-star" aria-hidden="true" style="color: #FCA311"></i>
+                        <% end %>
+                    </h3>
+                <% end %>
+                        <p><%= certificate.public_comment %></p>
+                        <small><%= link_to certificate.provider.name, entity_path(certificate.provider)%></small>
+                    </blockquote>
+                </div>
+                <div class="col-sm-2">
+                    <%= link_to image_tag(certificate.provider.image.url(:small), :class => 'img-responsive img-circle', :height => '150px'), entity_path(certificate.provider) %>
+                </div>
+            </div>
+        </div>
+        <div class="ibox-footer">
+            <% if %>
+                <% certificate.activity.certificates.each do |classmates| %>
+                    <%= link_to image_tag(classmates.owner.image.url(:small), :class => 'img-circle'), entity_path(classmates.owner)  %>
+                <% end %>
+            <% end %>
+        </div>
+</div>

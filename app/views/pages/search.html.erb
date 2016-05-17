@@ -1,0 +1,29 @@
+<div class="wrapper wrapper-content">
+  <div class="row animated fadeInRight">
+        <% if !@entities.empty? %>
+            <% @entities.each do |entity| %>
+                <div class="col-lg-3">
+                    <div class="contact-box center-version">
+                
+                        <%= link_to entity_path(entity) do %>
+                            <%= image_tag(entity.image.url(:square), class: 'img-circle') %>
+                            <h3 class="m-b-xs"><strong><%= entity.name %></strong></h3>
+                            <div class="font-bold">Headline</div>
+                        <% end %>
+                        <div class="contact-box-footer">
+                            <div class="m-t-xs btn-group">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+                                <a class="btn btn-xs btn-white"><i class="fa fa-facebook"></i> Facebook</a>
+                                <a class="btn btn-xs btn-white"><i class="fa fa-linkedin"></i> LinkedIn</a>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            <% end %>
+        <% else %>
+        </br></br>
+            <h1>Nenhuma pessoa encontrada</h1>
+        <% end %>
+    </div>
+</div>
