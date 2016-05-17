@@ -20,5 +20,7 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require pace/pace.min.js
 //= require slimscroll/jquery.slimscroll.min.js
+//= require bootstrap-markdown/bootstrap-markdown.js
+//= require bootstrap-markdown/markdown.js
 //= require custom.js
 //= require_tree .

@@ -57,9 +57,7 @@
                   <h5>Conteúdo</h5>
               </div>
               <div class="ibox-content">
-  
-                <%= raw @activity.content %>
-  
+                  <%= markdown(@activity.content) %>
               </div>
           </div>
           <div class="ibox float-e-margins">
