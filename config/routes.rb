@@ -74,3 +74,9 @@ FacebookAuthExample::Application.routes.draw do
     resources :sessions, only: [:create, :destroy]
 
 end
+
+Registration::Application.routes.draw do
+  get 'preregister', to 'sessions#preregister'
+  
+  get 'register', to 'sessions#register'
+end

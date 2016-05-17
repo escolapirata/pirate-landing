@@ -36,6 +36,8 @@ class User < Entity
       user.save!
     end
   end
+  
+  def generateInviteCode()
+  end
 end
-
 

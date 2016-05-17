@@ -40,3 +40,10 @@ module FacebookAuthExample
     # config.i18n.default_locale = :de
   end
 end
+
+module Registration
+  class Application < Rails::Application
+    
+  end
+end
+
