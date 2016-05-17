@@ -1,4 +1,4 @@
-class UserFields < ActiveRecord::Migration
+class NewUserFields < ActiveRecord::Migration
   def change
     add_column :users, :inviteCode, :string
     add_column :users, :isRegistered, :boolean
