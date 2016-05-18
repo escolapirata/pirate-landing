@@ -1,12 +1,21 @@
 class ActivitiesController < ApplicationController
-  before_action :require_admin, except: [:show]
+  before_action :require_admin, except: [:show, :index]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
   before_action :get_entities, only: [:edit, :new]
 
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+      if params[:tag]
+        begin
+          @activities = Activity.tagged_with(params[:tag])
+        rescue ActiveRecord::RecordNotFound => e
+          @activities = nil
+        end
+        
+      else
+        @activities = Activity.all
+  end
   end
 
   # GET /activities/1

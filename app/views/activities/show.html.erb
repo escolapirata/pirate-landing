@@ -22,11 +22,15 @@
                       <%= @activity.intro %>
                   </p>
                   <h5 class="tag-title">Tags</h5>
+                  <% if @activity.tags.any? %>
                   <ul class="tag-list" style="padding: 0">
-                    <li><a href="">Inovação</a></li>
-                    <li><a href="">Empreendedorismo</a></li>
-                    <li><a href="">Workshop</a></li>
+                      <% @activity.tags.each do |tag| %>
+                          <li><a href="" class="btn btn-xs btn-default"><%= tag.name %></a></li>
+                      <% end %>
                   </ul>
+                  <% else %>
+                      Sem Tags
+                  <% end %>
                   <div class="clearfix"></div>
               </div>
           </div>

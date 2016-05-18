@@ -17,12 +17,16 @@
         <div class="ibox-content">
             <p><%= activity.description %></p>
         </div>
-        <div class="ibox-footer">
-            <ul class="tag-list">
-                <li><a href="" class="btn btn-sm btn-default">Inovação</a></li>
-                <li><a href="">Empreendedorismo</a></li>
-                <li><a href="">Workshop</a></li>
+        <div class="ibox-content">
+            <% if activity.tags.any? %>
+            <ul class="tag-list" style="padding: 0">
+                <% activity.tags.each do |tag| %>
+                <li><%= link_to tag.name, tag_path(tag.name), class:"btn btn-xs btn-default" %></li>
+                <% end %>
             </ul>
+            <% else %>
+                Sem Tags
+            <% end %>
             </br>
         </div>
     </div>
