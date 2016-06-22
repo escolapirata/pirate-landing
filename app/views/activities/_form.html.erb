@@ -53,8 +53,7 @@
   <div class="form-group">
     <%= f.label "Tags", class: "col-sm-2 control-label" %>
     <div class="col-sm-10">
-      <input type="text" name="activity[tags][][name]" id="activity_tags_name" value="<%= @tags.map{ |p| p.name }.join(",") %>" data-role="tagsinput" />
-      <% #select_tag("tags",options_from_collection_for_select(@tags, "name", "name"), { multiple: true, :class=>'col-xs-12', 'data-role'=>"tagsinput"})  %>
+      <%= f.text_field :tag_list, :data => {:role => 'tagsinput' }, :class=>'col-xs-12' %>
     </div>
   </div>
   <div class="hr-line-dashed"></div>

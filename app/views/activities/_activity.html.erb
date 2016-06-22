@@ -19,7 +19,7 @@
         </div>
         <div class="ibox-content">
             <% if activity.tags.any? %>
-            <ul class="tag-list" style="padding: 0">
+            <ul class="tag-list" style="padding: 0;overflow: auto;">
                 <% activity.tags.each do |tag| %>
                 <li><%= link_to tag.name, tag_path(tag.name), class:"btn btn-xs btn-default" %></li>
                 <% end %>
@@ -27,7 +27,6 @@
             <% else %>
                 Sem Tags
             <% end %>
-            </br>
         </div>
     </div>
 </div>

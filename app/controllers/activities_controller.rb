@@ -54,15 +54,8 @@ class ActivitiesController < ApplicationController
   # PATCH/PUT /activities/1.json
   def update
     respond_to do |format|
-      print 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-      print activity_params[:tags].to_s
       if @activity.update(activity_params)
-        #print "passing this parameters as tags:" + new_tags[:tags].to_s
-        #if @activity.add_tags(new_tags[:tags].to_s)
           format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
-        #else
-        #  format.html { render :edit }
-        #end
       else
         format.html { render :edit }
       end
@@ -86,17 +79,7 @@ class ActivitiesController < ApplicationController
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids, :image, :intro, :description, :content, :tags => [:name])
+      params.require(:activity).permit(:name, :owner, :timestamps, :entity_ids, :image, :intro, :description, :content, :tag_list)
     end
-    def new_tags
-      params[:activity][:tags] ||= []
-      params.require(:activity).permit(:tags => [])
-    end
-      
-      #newtags = Array.new
-      #["workshop", "cálculo", "teste","teste2"].each do |n|
-      #  newactivity_paramsr:tagse: n).first_or_create!
-      #end
-      #Activity.find(params[:id]).tags = newtags
     
 end

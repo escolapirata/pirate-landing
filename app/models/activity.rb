@@ -8,27 +8,23 @@ class Activity < ActiveRecord::Base
     
     has_attached_file :image, styles: { cover: "800x300#"}
     validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
+    def self.tag_counts
+      Tag.select("tags.*, count(taggings.tag_id) as count").
+        joins(:taggings).group("taggings.tag_id")
+    end
     
+    def tag_list
+      tags.map(&:name).join(", ")
+    end
+    
+    def tag_list=(names)
+      self.tags = names.split(",").map do |n|
+        Tag.where(name: n.strip).first_or_create!
+      end
+    end
     def self.tagged_with(name)
       Tag.find_by_name!(name).activities
     end
     
-    def add_tags(tags)
-      if tags(:tags)
-        print "Trying to add this tags:" + tags(:tags).to_s + "to this activity:" + self.name
-        new_tags = tags(:tags)
-        #tags(:tags).each do |this_tag|
-        #  create = Tag.new
-        #  create = Tag.first_or_create("this_tag")
-        #  new_tags << create
-        #end
-        activity = self
-        activity.tags = new_tags
-        activity.save
-      else
-        print "No tags passed as parameter"
-      end
-    end
-      
-
 end
