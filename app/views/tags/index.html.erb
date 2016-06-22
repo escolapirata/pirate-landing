@@ -2,8 +2,10 @@
     <% if @tags.any? %>
         <h2>
             <div class="row">
-                <% @tags.each do |tag| %>
-                    <%= link_to tag.name, tag_path(tag.name), class:"btn btn-info" %>
+                <% Activity.tag_counts.each do |tag| %>
+                    <% if tag.count>0 %>
+                        <%= link_to "#{tag.name} (#{tag.count})", tag_path(tag.name), class:"btn btn-info" %>
+                    <% end %>
                 <% end %>
             </div>
         </h2>
