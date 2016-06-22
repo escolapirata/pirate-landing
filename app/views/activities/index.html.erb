@@ -1,33 +1,60 @@
-<div class="wrapper wrapper-content animated fadeInRight">
-<% @activities.each do |activity| %>
-  <div class="col-lg-4">
-    <div class="ibox">
-        <div class="ibox-title">
-            <h5><%= link_to activity.name, activity_path(activity)%></h5>
-            <span class="label label-default pull-right">Encerrado</span>
-        </div>
-        <div class="ibox-header">
-          <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
-        </div>
-        <div class="ibox-content">
-            <div class="team-members">
-              <% if %>
-                  <% activity.certificates.each do |classmates| %>
-                      <%= link_to image_tag(classmates.owner.image.url(:small), :class => 'img-circle'), entity_path(classmates.owner)  %>
-                  <% end %>
-              <% end %>
-            </div>
-            <p>
-                <%= raw activity.intro %>
-            </p>
-        </div>
-        <div class="ibox-footer">
-          <%= link_to "Editar", edit_activity_path(activity), class:"btn btn-sm btn-primary" %>
-        </div>
-    </div>
+<% if params[:tag] %>
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <h2># <%= params[:tag] %></h2>
   </div>
 <% end %>
+
+<div class="wrapper wrapper-content animated fadeInRight row">
+  <% if @activities!=nil %>
+    <% @activities.each do |activity| %>
+      <div class="col-md-6 col-lg-4">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5><%= link_to activity.name, activity_path(activity)%></h5>
+                <span class="label label-default pull-right">Encerrado</span>
+            </div>
+            <div class="ibox-header">
+              <%= image_tag activity.image.url(:cover), class:"img-responsive" %>
+            </div>
+            <div class="ibox-content">
+                <div class="team-members">
+                  <% if %>
+                      <% activity.certificates.each do |classmates| %>
+                          <%= link_to image_tag(classmates.owner.image.url(:small), :class => 'img-circle'), entity_path(classmates.owner)  %>
+                      <% end %>
+                  <% end %>
+                </div>
+                <p>
+                    <%= activity.intro %>
+                </p>
+            </div>
+            <div class="ibox-content">
+                <% if activity.tags.any? %>
+                <ul class="tag-list" style="padding: 0;overflow: auto;">
+                    <% activity.tags.each do |tag| %>
+                    <li><%= link_to tag.name, tag_path(tag.name), class:"btn btn-xs btn-default" %></li>
+                    <% end %>
+                </ul>
+                <% else %>
+                    Sem Tags
+                <% end %>
+            </div>
+            <% if is_admin %>
+              <div class="ibox-footer">
+                <%= link_to "Editar", edit_activity_path(activity), class:"btn btn-sm btn-primary" %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-lg-12">
+      <h1>Nenhuma atividade encontrada</h1></br>
+    </div>
+  <% end %>
 <% if current_user %>
-  <%= link_to "Nova atividade", new_activity_path, class:"btn btn-lg btn-primary" %>
+  <div class="col-lg-12">
+    <%= link_to "Nova atividade", new_activity_path, class:"btn btn-lg btn-primary" %>
+  </div>
 <% end %>
 </div>

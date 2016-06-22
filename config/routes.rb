@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
+  
+  get 'tags/:tag', to: 'activities#index', as: :tag
+  get 'tags', to: 'tags#index'
 
   resources :entities
   resources :activities
