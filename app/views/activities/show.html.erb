@@ -25,7 +25,7 @@
                   <% if @activity.tags.any? %>
                   <ul class="tag-list" style="padding: 0">
                       <% @activity.tags.each do |tag| %>
-                          <li><a href="" class="btn btn-xs btn-default"><%= tag.name %></a></li>
+                          <li><%= link_to tag.name, tag_path(tag.name), class:"btn btn-xs btn-default" %></li>
                       <% end %>
                   </ul>
                   <% else %>

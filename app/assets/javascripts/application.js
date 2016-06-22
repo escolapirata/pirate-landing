@@ -22,5 +22,6 @@
 //= require slimscroll/jquery.slimscroll.min.js
 //= require bootstrap-markdown/bootstrap-markdown.js
 //= require bootstrap-markdown/markdown.js
+//= require bootstrap-tagsinput/bootstrap-tagsinput.min.js
 //= require custom.js
 //= require_tree .
