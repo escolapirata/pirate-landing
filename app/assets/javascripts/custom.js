@@ -8,3 +8,4 @@ $('#betaTester')
    .on('hidden.bs.modal', function(){
        console.log('hidden');
    }).modal('show')
+   

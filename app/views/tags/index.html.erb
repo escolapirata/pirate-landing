@@ -1,0 +1,21 @@
+<div class="wrapper wrapper-content">
+    <% if @tags.any? %>
+        <h2>
+            <div class="row">
+                <% Activity.tag_counts.each do |tag| %>
+                    <% if tag.count>0 %>
+                        <%= link_to "#{tag.name} (#{tag.count})", tag_path(tag.name), class:"btn btn-info" %>
+                    <% end %>
+                <% end %>
+            </div>
+        </h2>
+    <% else %>
+        <h2>Sem Tags</h2>
+    <% end %>
+    <div id="tag_cloud">
+      <% tag_cloud Activity.tag_counts, %w[s m l] do |tag, css_class| %>
+        <% link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div>
+    
+</div>
