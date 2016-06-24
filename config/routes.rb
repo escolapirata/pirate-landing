@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'activities#index', as: :tag
   get 'tags', to: 'tags#index'
-
+  resources :blogposts
   resources :entities
   resources :activities
   # The priority is based upon order of creation: first created -> highest priority.
@@ -70,14 +70,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-<<<<<<< HEAD
 end
 
 
 FacebookAuthExample::Application.routes.draw do
-  resources :blogposts
-=======
->>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
+
   resources :certificates
  
   resources :paths
