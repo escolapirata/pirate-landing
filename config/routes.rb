@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :blogposts
   resources :certificates
   resources :paths
   get 'sessions/create'
@@ -70,6 +71,7 @@ end
 
 
 FacebookAuthExample::Application.routes.draw do
+  resources :blogposts
   resources :certificates
   resources :paths
     get 'auth/:provider/callback', to: 'sessions#create'

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <h1>Todos os posts</h1></br>
+  <div class="row">
+    <% @blogposts.each do |blogpost| %>
+  		<div class="col-lg-4 col-md-6">
+  			<div class="ibox" >
+  			    <div class="ibox-content product-box" >
+    						<div class="ibox-content no-padding border-left-right" >
+    						  <img src=<%=blogpost.image%> class="img-responsive" style='height: 100%; width: 100%; object-fit: contain'/>
+    						</div>
+    				        <div class="product-desc" style ='height: 100%'>
+    				            <h2>
+    				              <%= link_to blogpost.title, blogpost_path(blogpost)%> </br>
+    				        	</a></h2>
+    				        	  <h3> <%= blogpost.subtitle %></h3>
+    				            <div class=" medium-t-xs">
+    				               <%=h truncate(blogpost.body,:length => 150) %>
+    				            </div>
+    				            <div class="m-t text-righ">
+    				                <a href=<%= blogpost.link %> class="btn btn-s btn-outline btn-primary ">Continuar lendo <i class="fa fa-long-arrow-right"></i> </a>
+    				            </div>
+    				        </div>
+  			    </div>
+  			</div>
+  		</div>
+	  <%end%>
+  </div>
+  <%= link_to 'Novo Post', new_blogpost_path, class: "btn btn-primary"%>
+</div>
+
+
