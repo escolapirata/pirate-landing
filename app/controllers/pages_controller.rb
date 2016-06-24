@@ -5,6 +5,7 @@ class PagesController < ApplicationController
        if params[:name]&&!params[:name].empty?
           redirect_to controller: 'pages', action: 'search', name: params[:name]
        end
+       @blogposts = Blogpost.all
    end
    
    def search
