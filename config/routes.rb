@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
+  
+  get 'tags/:tag', to: 'activities#index', as: :tag
+  get 'tags', to: 'tags#index'
 
   resources :entities
   resources :activities
@@ -67,17 +70,39 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+<<<<<<< HEAD
 end
 
 
 FacebookAuthExample::Application.routes.draw do
   resources :blogposts
+=======
+>>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
   resources :certificates
+ 
   resources :paths
-    get 'auth/:provider/callback', to: 'sessions#create'
-    get 'auth/failure', to: redirect('/')
-    get 'signout', to: 'sessions#destroy', as: 'signout'
+ 
+  get 'auth/:provider/callback', to: 'sessions#create' 
+ 
+  get 'auth/failure', to: redirect('/')
+ 
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+ 
+  resources :sessions, only: [:create, :destroy]
+    
+  post 'preregister', to: 'users#preregister'
+  
+  get 'preregister', to: 'users#newPreRegister'
+  
+  post 'register', to: 'users#register'
+  
+  get 'register', to: 'users#newRegister'
+  
+  get 'users', :to => 'users#show', :as => :users
+  
 
-    resources :sessions, only: [:create, :destroy]
+
 
 end
+
+

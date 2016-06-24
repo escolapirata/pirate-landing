@@ -14,9 +14,15 @@
             <% end %>
             
         </div>
-        <ul class="nav navbar-top-links navbar-right">
-
-            <% if current_user&&current_user.uid=="10153629801172736" %>
+        <ul class="nav navbar-top-links navbar-right pull-right">
+            <% if current_user %>
+                <li class="hide-when-small">
+                    <%= link_to image_tag(Entity.first.image.url(:small), :class => 'img-circle', size: "32"), entity_path(current_user)  %>
+                </li>
+                <li style="vertical-align: middle;" class="hide-when-small">
+                    <strong class="font-bold">Logado como</strong>
+                    <span class="text-muted text-xs block"><%= current_user.name %></span>
+                </li>
                 <li>
                     <%= link_to signout_path do %>
                         <i class="fa fa-sign-out"></i> Sair

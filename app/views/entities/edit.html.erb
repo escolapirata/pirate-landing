@@ -1,6 +1,14 @@
-<h1>Editing Entity</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @entity %> |
-<%= link_to 'Back', entities_path %>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="ibox">
+      <div class="ibox-title">  
+          <h2>Editar Entidade</h2>
+      </div>
+      <div class="ibox-content">
+          <%= render 'form' %>
+      </div>
+      <div class="ibox-footer">
+        <%= link_to 'Exibir', @entity %> |
+        <%= link_to 'Voltar', entities_path %>
+      </div>
+    </div>
+</div>

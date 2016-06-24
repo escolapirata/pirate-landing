@@ -6,14 +6,8 @@
 
   <div class="vertical-timeline-content ibox">
           <div class="ibox-title">
-              <div class="col-lg-9">
-                  <h1><%= link_to certificate.activity.name, activity_path(certificate.activity)%></h1>
-                  <h2>com <%= link_to certificate.provider.name, entity_path(certificate.provider)%></h2>
-              </div>
-              <div class="col-lg-3">
-
-                #inovação #empreendedorismo #workshop
-              </div>
+              <h1><%= link_to certificate.activity.name, activity_path(certificate.activity)%></h1>
+              <h2>com <%= link_to certificate.provider.name, entity_path(certificate.provider)%></h2>
           </div>
           <div class="ibox-content">
                 
@@ -69,6 +63,16 @@
                 </div>
             </div>
         </div>
+        <% if certificate.activity.tags.any? %>
+            <div class="ibox-content">
+                <ul class="tag-list" style="padding: 0">
+                    <% certificate.activity.tags.each do |tag| %>
+                    <li><%= link_to tag.name, tag_path(tag.name), class:"btn btn-xs btn-default" %></li>
+                    <% end %>
+                </ul></br>
+            </div>
+        <% end %>
+            
         <div class="ibox-footer">
             <% if %>
                 <% certificate.activity.certificates.each do |classmates| %>

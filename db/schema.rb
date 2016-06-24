@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160622015339) do
+=======
+ActiveRecord::Schema.define(version: 20160517220639) do
+>>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -61,7 +65,20 @@ ActiveRecord::Schema.define(version: 20160622015339) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+<<<<<<< HEAD
+=======
     t.string   "intro"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.string   "urlImage"
+>>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
+    t.string   "intro"
+    t.string   "inviteCode"
+    t.boolean  "isRegistered",       default: false, null: false
+    t.boolean  "registerCompleted",  default: false, null: false
+    t.string   "username"
   end
 
   create_table "ownerships", force: :cascade do |t|
@@ -82,16 +99,35 @@ ActiveRecord::Schema.define(version: 20160622015339) do
     t.datetime "updated_at"
   end
 
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "entity_id"
+    t.integer  "tag_id"
+    t.integer  "activity_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "counter"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "email"
     t.string   "urlImage"
+    t.string   "inviteCode"
+    t.boolean  "isRegistered",      default: false, null: false
+    t.boolean  "registerCompleted", default: false, null: false
+    t.string   "username"
   end
 
 end
