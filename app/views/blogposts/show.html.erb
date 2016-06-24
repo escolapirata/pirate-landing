@@ -8,20 +8,17 @@
   						<div class="ibox-content no-padding border-left-right" >
   						  <img src=<%=@blogpost.image%> class='img-responsive' style='height: 100%; width: 100%; object-fit: contain'/>
   						</div>
-  				        <div class="product-desc">
-  				            <h2>
-  				            	<%= @blogpost.title %> 
-  				        	  </h2>
-  				        	  <h3> <%= @blogpost.subtitle %></h3>
-  				            <div class=" medium-t-xs">
-  				               <%= @blogpost.body %>
-  				            </div>
-  				            <div class="m-t text-righ">
-  				                <a href=<%= @blogpost.link %> class="btn btn-s btn-outline btn-primary">Continuar lendo <i class="fa fa-long-arrow-right"></i> </a>
-  				                <%= link_to 'Editar', edit_blogpost_path(@blogpost), class:"btn btn-s btn-primary btn-outline pull-right"%>
-  				               
-  				            </div>
-  				        </div>
+			        <div class="product-desc">
+			            <h2> <%= @blogpost.title %> </h2>
+			        	  <h3> <%= @blogpost.subtitle %> </h3>
+			            <div class=" medium-t-xs">
+			               <%= @blogpost.body %>
+			            </div>
+			            <div class="m-t text-righ">
+			                <a href=<%= @blogpost.link %> class="btn btn-s btn-outline btn-primary">Continuar lendo <i class="fa fa-long-arrow-right"></i> </a>
+			                <%= link_to 'Editar', edit_blogpost_path(@blogpost), class:"btn btn-s btn-primary btn-outline pull-right"%>
+			            </div>
+			        </div>
   			    </div>
   			</div>
   		</div>
