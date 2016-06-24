@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160517220639) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "urlImage"
+    t.string   "intro"
     t.string   "inviteCode"
     t.boolean  "isRegistered",       default: false, null: false
     t.boolean  "registerCompleted",  default: false, null: false
