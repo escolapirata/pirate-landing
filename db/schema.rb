@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160622015339) do
-=======
-ActiveRecord::Schema.define(version: 20160517220639) do
->>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
@@ -65,16 +61,12 @@ ActiveRecord::Schema.define(version: 20160517220639) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-<<<<<<< HEAD
-=======
     t.string   "intro"
     t.string   "provider"
     t.string   "uid"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "urlImage"
->>>>>>> bc66290509889e9b71e03cf07432fd4abaa31266
-    t.string   "intro"
     t.string   "inviteCode"
     t.boolean  "isRegistered",       default: false, null: false
     t.boolean  "registerCompleted",  default: false, null: false
