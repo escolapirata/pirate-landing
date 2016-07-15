@@ -17,7 +17,7 @@
         <ul class="nav navbar-top-links navbar-right pull-right">
             <% if current_user %>
                 <li class="hide-when-small">
-                    <%= link_to image_tag(Entity.first.image.url(:small), :class => 'img-circle', size: "32"), entity_path(current_user)  %>
+                    <%= link_to image_tag(current_user.urlImage, :class => 'img-circle', size: "32"), entity_path(current_user)  %>
                 </li>
                 <li style="vertical-align: middle;" class="hide-when-small">
                     <strong class="font-bold">Logado como</strong>

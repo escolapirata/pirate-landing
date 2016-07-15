@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'tags', to: 'tags#index'
   resources :blogposts
   resources :entities
+  #resources :users
   resources :activities
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
   
   get 'register', to: 'users#newRegister'
   
-  get 'users', :to => 'users#show', :as => :users
+  get 'user', :to => 'users#show', :as => :user
   
 
 
