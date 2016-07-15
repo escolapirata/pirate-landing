@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   get 'tags/:tag', to: 'activities#index', as: :tag
   get 'tags', to: 'tags#index'
-
+  resources :blogposts
   resources :entities
   resources :activities
   # The priority is based upon order of creation: first created -> highest priority.
@@ -20,6 +20,18 @@ Rails.application.routes.draw do
   post 'beta_testers/', to: 'beta_testers#create'
   get 'pages/:name', to: 'pages#search'
 
+<<<<<<< HEAD
+end
+
+
+FacebookAuthExample::Application.routes.draw do
+
+  resources :certificates
+ 
+  resources :paths
+ 
+=======
+>>>>>>> 344ded3d9d9fbbd29d055a5cadc41863f016352f
   get 'auth/:provider/callback', to: 'sessions#create' 
  
   get 'auth/failure', to: redirect('/')
