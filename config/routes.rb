@@ -19,19 +19,8 @@ Rails.application.routes.draw do
   root 'pages#index'
   post 'beta_testers/', to: 'beta_testers#create'
   get 'pages/:name', to: 'pages#search'
+  # Daqui pra baixo estava no commit errado?
 
-<<<<<<< HEAD
-end
-
-
-FacebookAuthExample::Application.routes.draw do
-
-  resources :certificates
- 
-  resources :paths
- 
-=======
->>>>>>> 344ded3d9d9fbbd29d055a5cadc41863f016352f
   get 'auth/:provider/callback', to: 'sessions#create' 
  
   get 'auth/failure', to: redirect('/')
