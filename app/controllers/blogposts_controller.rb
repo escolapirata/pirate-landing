@@ -1,5 +1,6 @@
 class BlogpostsController < ApplicationController
   before_action :set_blogpost, only: [:show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:new, :edit, :update, :create, :destroy]
 
   # GET /blogposts
   # GET /blogposts.json
